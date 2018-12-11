@@ -12,7 +12,7 @@ const App = () => (
   <Provider store={store}>
     <Fragment>
       <Helmet
-        titleTemplate="%s | React Boilerplate"
+        titleTemplate="%s | Portfolio"
         meta={[
           { charset: 'utf-8' },
           {

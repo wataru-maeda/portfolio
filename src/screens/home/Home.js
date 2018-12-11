@@ -8,7 +8,7 @@ export default class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={images.logo} className="App-logo" alt="logo" />
-          <h5 style={{ fontSize: '2em' }}>React Boilerplate</h5>
+          <h5 style={{ fontSize: '2em' }}>Wataru Maeda | Portfolio</h5>
           <p>
             Edit <code>src/Home.js</code> and save to reload.
           </p>

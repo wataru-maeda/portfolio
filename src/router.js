@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
-import Home from './screens/home'
+import Portfolio from './screens/portfolio'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './styles/global.css'
@@ -14,15 +14,15 @@ export default class Router extends Component {
           { loggedIn
             ? (
               <Switch>
-                <Route exact path="/" component={Home} />
-                <Route component={Home} />
+                <Route exact path="/" component={Portfolio} />
+                <Route component={Portfolio} />
                 <Redirect to="/" />
               </Switch>
             )
             : (
               <Switch>
-                <Route exact path="/" component={Home} />
-                <Route component={Home} />
+                <Route exact path="/" component={Portfolio} />
+                <Route component={Portfolio} />
                 <Redirect to="/" />
               </Switch>
             )}

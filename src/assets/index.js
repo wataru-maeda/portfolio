@@ -1,4 +1,6 @@
-import logo from './images/logo.svg'
+import flashcard from './images/icon-share-flash-cards.png'
+import stickyMemo from './images/icon-sticky-memo.png'
+import greattaractive from './images/icon-greattaractive.png'
 
 import regular from './fonts/Arvo-Regular.ttf'
 import italic from './fonts/Arvo-Italic.ttf'
@@ -8,7 +10,9 @@ import boldItalic from './fonts/Arvo-BoldItalic.ttf'
 // MARK: - Images
 
 export const images = {
-  logo,
+  flashcard,
+  stickyMemo,
+  greattaractive,
 }
 
 // MARK: - Fonts

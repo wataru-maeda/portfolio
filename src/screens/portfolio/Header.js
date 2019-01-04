@@ -1,5 +1,5 @@
 import React from 'react'
-// import './header.css'
+// import './style.css'
 
 export default () => (
   <header style={styles.container} className="bg">

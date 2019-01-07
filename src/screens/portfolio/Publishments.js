@@ -32,8 +32,8 @@ export default class Publishments extends Component {
           {this.renderPlatform(data.android)}
         </div>
         <div style={styles.contentsContainer}>
-        {this.renderPlatform(data.ios)}
-          {this.renderPlatform(data.android)}
+        {this.renderPlatform(data.web)}
+          {this.renderPlatform(data.hybrid)}
         </div>
       </div>
     )
@@ -65,7 +65,27 @@ const data = {
         subtitle: 'matching app for creators',
       },
     ]
-  }
+  },
+  web: {
+    title: 'Web',
+    apps: [
+      {
+        logo: images.iosClassForBeginners,
+        title: 'iOS Class for Beginners',
+        subtitle: 'Tutors for iOS development beginners',
+      },
+    ]
+  },
+  hybrid: {
+    title: 'Hybrid App',
+    apps: [
+      {
+        logo: images.comingSoon,
+        title: 'Coming soon...',
+        subtitle: 'In progress',
+      },
+    ]
+  },
 }
 
 const styles = {
@@ -75,7 +95,7 @@ const styles = {
     justifyContent: 'center',
     alignItems: 'center',
     background: 'white',
-    padding: '0 60px',
+    padding: 60,
   },
   contentsContainer: {
     width: '100%',

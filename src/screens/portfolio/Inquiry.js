@@ -53,7 +53,7 @@ const styles = {
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    background: '#fafafa',
+    background: '#f2f2f2',
     padding: '80px 160px',
   },
   contentsContainer: {
@@ -82,7 +82,8 @@ const styles = {
     fontSize: '1.5em',
     fontWeight: 'bold',
     width: '30%',
-    borderRadius: 30,
+    background: 'black',
+    border: 'none',
     margin: '60px 0 0',
   },
 }

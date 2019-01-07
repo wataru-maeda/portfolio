@@ -13,11 +13,11 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
-    height: '90vh',
+    height: '80vh',
     padding: 60,
   },
   title: {
-    fontSize: '4em',
+    fontSize: '5em',
     color: 'black',
   },
   subtitle: {

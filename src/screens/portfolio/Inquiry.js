@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import Input from '../../components/Input'
 import Button from '../../components/Button'
-import './style.css'
 
 export default class Inquiry extends Component {
   onChange = () => {

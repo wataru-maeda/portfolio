@@ -2,15 +2,31 @@ import React, { Component } from 'react'
 import { images } from '../../assets' 
 
 export default class Publishments extends Component {
+  renderScreenShot = imgUrl => {
+    return (
+      <img
+        src={imgUrl}
+        // className="img-fluid"
+        style={styles.ssImage}
+        alt="ScreenShots"
+      />
+    )
+  }
+
   renderApp = app => {
     return (
       <div style={styles.appContainer}>
-        <img src={app.logo} style={styles.appImage}/>
-        <div style={styles.appTitleContainer}>
-          <h1 style={styles.appTitle}>{app.title}</h1>
-          <p style={styles.appSubtitle}>{app.subtitle}</p>
+        <div style={styles.appContentsContainer}>
+          <img src={app.logo} style={styles.appImage}/>
+          <div style={styles.appTitleContainer}>
+            <h1 style={styles.appTitle}>{app.title}</h1>
+            <p style={styles.appSubtitle}>{app.subtitle}</p>
+          </div>
+          <button className="btn btn-light" style={styles.moreButton}>More</button>
         </div>
-        <button className="btn btn-light" style={styles.moreButton}>More</button>
+        <div style={styles.ssContainer}>
+          {app.ss.map(imgUrl => this.renderScreenShot(imgUrl))}
+        </div>
       </div>
     )
   }
@@ -27,14 +43,10 @@ export default class Publishments extends Component {
     return (
       <div style={styles.container}>
         <h1 style={styles.title}>Publishing Apps</h1>
-        <div style={styles.contentsContainer}>
-          {this.renderPlatform(data.ios)}
-          {this.renderPlatform(data.android)}
-        </div>
-        <div style={styles.contentsContainer}>
+        {this.renderPlatform(data.ios)}
+        {this.renderPlatform(data.android)}
         {this.renderPlatform(data.web)}
-          {this.renderPlatform(data.hybrid)}
-        </div>
+        {this.renderPlatform(data.hybrid)}
       </div>
     )
   }
@@ -45,14 +57,16 @@ const data = {
     title: 'iOS',
     apps: [
       {
-        logo: images.flashcard,
+        logo: images.flashcard.icon,
         title: 'Word book to share',
         subtitle: 'share your own cards with your friends',
+        ss: images.flashcard.ss.en
       },
       {
-        logo: images.stickyMemo,
+        logo: images.stickyMemo.icon,
         title: 'Sticky Memo++',
         subtitle: 'colorful stickies',
+        ss: images.stickyMemo.ss.en
       },
     ]
   },
@@ -60,9 +74,10 @@ const data = {
     title: 'Android',
     apps: [
       {
-        logo: images.greattaractive,
+        logo: images.greattaractive.icon,
         title: 'Greattractive',
         subtitle: 'matching app for creators',
+        ss: images.greattaractive.ss.en
       },
     ]
   },
@@ -70,9 +85,10 @@ const data = {
     title: 'Web',
     apps: [
       {
-        logo: images.iosClassForBeginners,
+        logo: images.iosClassForBeginners.icon,
         title: 'iOS Class for Beginners',
         subtitle: 'Tutors for iOS development beginners',
+        ss: images.iosClassForBeginners.ss.en
       },
     ]
   },
@@ -80,9 +96,10 @@ const data = {
     title: 'Hybrid App',
     apps: [
       {
-        logo: images.comingSoon,
+        logo: images.comingSoon.icon,
         title: 'Coming soon...',
         subtitle: 'In progress',
+        ss: images.comingSoon.ss.en
       },
     ]
   },
@@ -107,11 +124,20 @@ const styles = {
     borderRadius: 20,
     padding: 30,
     margin: '20px 20px 0',
+    width: '100%',
   },
   appContainer: {
     display: 'flex',
+    flexDirection: 'column',
+  },
+  appContentsContainer: {
+    display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
+  },
+  ssContainer: {
+    overflowX: 'auto',
+    whiteSpace: 'nowrap',
   },
   appTitleContainer: {
     flex: 1,
@@ -144,5 +170,15 @@ const styles = {
     margin: 10,
     width: 60,
     height: 60,
+  },
+  ssImage: {
+    verticalAlign: 'middle',
+    objectFit: 'cover',
+    borderRadius: 30,
+    margin: 10,
+    display: 'inline-block',
+    maxWidth: '40%',
+    width: 'auto',
+    height: 'auto',
   }
 }

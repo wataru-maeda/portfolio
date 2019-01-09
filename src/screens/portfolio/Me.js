@@ -4,7 +4,7 @@ export default class Me extends Component {
   render() {
     return (
       <div style={styles.container}>
-        <h1 style={styles.title}>Hello!</h1>
+        <h1 style={styles.title}>Profile</h1>
       </div>
     )
   }
@@ -12,11 +12,12 @@ export default class Me extends Component {
 
 const styles = {
   container: {
+    width: '100%',
+    height: '100%',
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'center',
     alignItems: 'center',
-    background: '#f2f2f2',
+    background: '#363e49',
     padding: 60,
   },
   title: {

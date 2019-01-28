@@ -21,9 +21,21 @@ export default class Me extends Component {
           I have created software (iOS/Android/Hybrid app/web/APIs..) for customers since 2014.
           If you looking for a frontend developer who can build modern UI/UX with high performance, here I come. Feel free to contact me!         
         </p>
-        <Button title="Details of app production request" style={styles.button} />
-        <Button title="Details of web production request" style={styles.button} />
-        <Button title="Inquiry" style={styles.button} />
+        <Button
+          title="Details of app production request"
+          style={styles.button}
+          onClick={() => { alert('test') }}
+        />
+        <Button
+          title="Details of web production request"
+          style={styles.button}
+          onClick={() => { alert('test') }}
+        />
+        <Button
+          title="Inquiry"
+          style={styles.button}
+          onClick={() => { alert('test') }}
+        />
       </div>
     )
   }

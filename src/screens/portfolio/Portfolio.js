@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Header from './Header'
-import Publishments from './Publishments'
+import Projects from './Projects'
 import Inquiry from './Inquiry'
 import Me from './Me'
 
@@ -10,7 +10,7 @@ export default class Portfolio extends Component {
       <div style={styles.container}>
         <div style={styles.contentsContainer}>
           <Header />
-          <Publishments />
+          <Projects />
           <Inquiry />
         </div>
         <div style={styles.sideContainer}>

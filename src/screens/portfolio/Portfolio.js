@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Navigation from './Navigation'
 import Header from './Header'
 import About from './About'
 import Projects from './Projects'
@@ -8,17 +9,19 @@ import Me from './Me'
 export default class Portfolio extends Component {
   render() {
     return (
-      <div style={styles.container}>
-        <div style={styles.contentsContainer}>
-          <Header />
-          <About />
-          <Projects />
-          <Inquiry />
+      <Navigation>
+        <div style={styles.container}>
+          <div style={styles.contentsContainer}>
+            <Header />
+            <About />
+            <Projects />
+            <Inquiry />
+          </div>
+          <div style={styles.sideContainer}>
+            <Me />
+          </div>
         </div>
-        <div style={styles.sideContainer}>
-          <Me />
-        </div>
-      </div>
+      </Navigation>
     );
   }
 }

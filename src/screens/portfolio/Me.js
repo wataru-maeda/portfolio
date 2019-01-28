@@ -34,22 +34,26 @@ const styles = {
     width: '100%',
     height: '100%',
     background: '#363e49',
-    padding: 60,
   },
   profileContainer: {
     display: 'flex',
     flexDirection: 'column',
+    justifyContent: 'center',
     alignItems: 'center',
+    width: '100%',
+    height: '100vh',
+    padding: 60,
   },
   description: {
     color: 'gray',
     textAlign: 'center',
     fontSize: 18,
+    padding: '0 0 40px',
   },
   title: {
     fontSize: '2em',
     color: '#63636e',
-    margin: '0 0 30px',
+    margin: '0 0 60px',
   },
   profileImg: {
     verticalAlign: 'middle',
@@ -57,7 +61,7 @@ const styles = {
     borderRadius: 50,
     width: 100,
     height: 100,
-    margin: '0 0 15px',
+    margin: '0 0 20px',
   },
   button: {
     color: '#3295e3',

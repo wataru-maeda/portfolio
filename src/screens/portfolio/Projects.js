@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import { images } from '../../assets' 
+import { images } from '../../assets'
 
-export default class Publishments extends Component {
+export default class Projects extends Component {
   renderScreenShot = imgUrl => {
     return (
       <img

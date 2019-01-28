@@ -35,6 +35,10 @@ import ss_jp_1_iosClass from './images/ss-ios-class-for-beginners/ss_1_jp.png'
 import ss_jp_2_iosClass from './images/ss-ios-class-for-beginners/ss_2_jp.png'
 import ss_jp_3_iosClass from './images/ss-ios-class-for-beginners/ss_3_jp.png'
 
+import ss_jp_1_tourism from './images/ss-tourism-challenge/ss_1_jp.png'
+import ss_jp_2_tourism from './images/ss-tourism-challenge/ss_2_jp.png'
+import ss_jp_3_tourism from './images/ss-tourism-challenge/ss_3_jp.png'
+
 import regular from './fonts/SF-Regular.otf'
 import italic from './fonts/SF-Italic.otf'
 import bold from './fonts/SF-Regular.otf'
@@ -115,14 +119,14 @@ export const images = {
     icon: comingSoonIcon,
     ss: {
       en: [
-        ss_en_1_iosClass,
-        ss_en_2_iosClass,
-        ss_en_3_iosClass,
+        ss_jp_1_tourism,
+        ss_jp_2_tourism,
+        ss_jp_3_tourism,
       ],
       jp: [
-        ss_jp_1_iosClass,
-        ss_jp_2_iosClass,
-        ss_jp_3_iosClass,
+        ss_jp_1_tourism,
+        ss_jp_2_tourism,
+        ss_jp_3_tourism,
       ],
     }
   },

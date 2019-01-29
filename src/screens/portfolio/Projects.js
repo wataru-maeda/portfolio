@@ -1,7 +1,18 @@
 import React, { Component } from 'react'
 import { images } from '../../assets'
+import Button from '../../components/Button'
+
+const ALL = 'All'
+const IOS = 'iOS'
+const ANDROID = 'Android'
+const HYBRID = 'Hybrid'
+const WEB = 'Web'
 
 export default class Projects extends Component {
+  state = {
+    selected: ALL,
+  }
+
   renderScreenShot = imgUrl => {
     return (
       <img
@@ -31,6 +42,24 @@ export default class Projects extends Component {
     )
   }
 
+  renderButtons = () => {
+    const { selected } = this.state
+    const { button, buttonSelected } = styles
+    const items = [ALL, IOS, ANDROID, HYBRID, WEB]
+    return (
+      <div style={styles.buttonContainer}>
+        {items.map(item => (
+          <Button
+            title={item}
+            className="btn-light"
+            style={selected === item ? buttonSelected : button}
+            onClick={() => this.setState({ selected: item })}
+          />
+        ))}
+      </div>
+    )
+  }
+
   renderPlatform = item => {
     return (
       <div className="shadow-lg p-3 mb-5 bg-white rounded" style={styles.itemContainer}>
@@ -39,10 +68,12 @@ export default class Projects extends Component {
       </div>
     )
   }
+
   render() {
     return (
       <div style={styles.container}>
         <h1 style={styles.title}>Publishing Apps</h1>
+        {this.renderButtons()}
         {this.renderPlatform(data.ios)}
         {this.renderPlatform(data.android)}
         {this.renderPlatform(data.web)}
@@ -145,6 +176,14 @@ const styles = {
     flexDirection: 'column',
     justifyContent: 'center',
   },
+  buttonContainer: {
+    // width: '100%',
+    // display: 'flex',
+    // flexDirection: 'row',
+    // justifyContent: 'space-between',
+    // alignItems: 'center',
+    // padding: '0 60px',
+  },
   title: {
     fontSize: '2em',
     color: '#63636e',
@@ -180,5 +219,19 @@ const styles = {
     maxWidth: '40%',
     width: 'auto',
     height: 'auto',
-  }
+  },
+  button: {
+    background: '#f8f9fa',
+    color: '#63636e',
+    fontSize: 18,
+    padding: '8px 16px',
+    margin: '0 4px',
+  },
+  buttonSelected: {
+    background: 'black',
+    color: 'white',
+    fontSize: 18,
+    padding: '8px 16px',
+    margin: '0 2px',
+  },
 }

@@ -4,7 +4,6 @@ import Button from '../../components/Button'
 
 export default class Inquiry extends Component {
   onChange = () => {
-
   }
 
   render() {

@@ -15,7 +15,7 @@ export default class About extends Component {
         <h1 style={styles.title}>About</h1>
         <div style={styles.contentsContainer}>
           {this.renderItem(images.kiss, 'KISS (Keep it short and simple), My favorite quote. I always keep it mind when I code.')}
-          {this.renderItem(images.fast, 'Love everything fast. Fast performance, fast coding, fast lerner and the apps I made is fast!')}
+          {this.renderItem(images.fast, 'Love everything fast. Design fast, code fast, launch fast and the apps I make is fast!')}
           {this.renderItem(images.design, 'Always keep in mind for the great UI/UX. Following design principle.')}
         </div>
       </div>

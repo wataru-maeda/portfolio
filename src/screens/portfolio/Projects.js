@@ -13,17 +13,6 @@ export default class Projects extends Component {
     selected: ALL,
   }
 
-  renderScreenShot = imgUrl => {
-    return (
-      <img
-        src={imgUrl}
-        // className="img-fluid"
-        style={styles.ssImage}
-        alt="ScreenShots"
-      />
-    )
-  }
-
   renderApp = app => {
     return (
       <div style={styles.appContainer}>
@@ -36,7 +25,13 @@ export default class Projects extends Component {
           <button className="btn btn-light" style={styles.moreButton}>More</button>
         </div>
         <div style={styles.ssContainer}>
-          {app.ss.map(imgUrl => this.renderScreenShot(imgUrl))}
+          {app.ss.map(imgUrl => (
+            <img
+              src={imgUrl}
+              style={styles.ssImage}
+              alt="ScreenShots"
+            />
+          ))}
         </div>
       </div>
     )
@@ -70,14 +65,15 @@ export default class Projects extends Component {
   }
 
   render() {
+    const { selected } = this.state
     return (
       <div style={styles.container}>
         <h1 style={styles.title}>Publishing Apps</h1>
         {this.renderButtons()}
-        {this.renderPlatform(data.ios)}
-        {this.renderPlatform(data.android)}
-        {this.renderPlatform(data.web)}
-        {this.renderPlatform(data.hybrid)}
+        {(selected === ALL || selected === IOS) && this.renderPlatform(data.ios)}
+        {(selected === ALL || selected === ANDROID) && this.renderPlatform(data.android)}
+        {(selected === ALL || selected === WEB) && this.renderPlatform(data.web)}
+        {(selected === ALL || selected === HYBRID) && this.renderPlatform(data.hybrid)}
       </div>
     )
   }
@@ -213,10 +209,10 @@ const styles = {
   ssImage: {
     verticalAlign: 'middle',
     objectFit: 'cover',
-    borderRadius: 30,
+    borderRadius: 10,
     margin: 10,
     display: 'inline-block',
-    maxWidth: '40%',
+    maxWidth: '30%',
     width: 'auto',
     height: 'auto',
   },

@@ -11,15 +11,11 @@ export default class Portfolio extends Component {
     return (
       <Navigation>
         <div style={styles.container}>
-          <div style={styles.contentsContainer}>
-            <Header />
-            <About />
-            <Projects />
-            <Inquiry />
-          </div>
-          <div style={styles.sideContainer}>
-            <Me />
-          </div>
+          <Header />
+          <About />
+          <Me />
+          <Projects />
+          <Inquiry />
         </div>
       </Navigation>
     );
@@ -29,16 +25,8 @@ export default class Portfolio extends Component {
 const styles = {
   container: {
     display: 'flex',
-    flexDirection: 'row',
+    flexDirection: 'column',
     background: 'white',
     minHeight: '100vh',
   },
-  contentsContainer: {
-    width: '70%',
-    display: 'flex',
-    flexDirection: 'column',
-  },
-  sideContainer: {
-    width: '30%',
-  }
 }

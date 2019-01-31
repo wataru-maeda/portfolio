@@ -1,9 +1,63 @@
 import React, { Component } from 'react'
+import { images } from '../../assets'
+import Button from '../../components/Button'
+import { Collapse } from 'reactstrap'
 
 export default class Navigation extends Component {
+  state = {
+    isOpen: false,
+  }
+
   renderMenu = () => {
+    const { isOpen } = this.state
+    const navStyle = isOpen
+      ? {...styles.headerContainer, backgroundColor: 'rgba(10, 10, 10, 0.6)'}
+      : styles.headerContainer
     return (
-      <div />
+      <nav className="navbar sticky-top" style={navStyle}>
+        <div style={styles.toggleMenuContainer}>
+          <div />
+          <Button
+            style={styles.toggleMenuButton}
+            onClick={() => this.setState({ isOpen: !isOpen })}>
+            <img src={images.menu} style={styles.toggleIcon} />
+          </Button>
+        </div>
+        <div style={styles.toggleMenuContainer}>
+          <Collapse isOpen={isOpen} style={{ width: '100%' }}>
+            <div style={styles.menuButtonContainer}>
+              <a
+                className="page-scroll"
+                style={styles.menuButton}
+                href="#about"
+                onClick={() => {
+                  this.setState({ isOpen: false })
+                }}>About</a>
+              <a
+                className="page-scroll"
+                style={styles.menuButton}
+                href="#me"
+                onClick={() => {
+                  this.setState({ isOpen: false })
+                }}>Profile</a>
+              <a
+                className="page-scroll"
+                style={styles.menuButton}
+                href="#projects"
+                onClick={() => {
+                  this.setState({ isOpen: false })
+                }}>Portfolio</a>
+              <a
+                className="page-scroll"
+                style={styles.menuButton}
+                href="#inquiry"
+                onClick={() => {
+                  this.setState({ isOpen: false })
+                }}>Inquiry</a>
+            </div>
+          </Collapse>
+        </div>
+      </nav>
     )
   }
 
@@ -38,7 +92,28 @@ const styles = {
   container: {
     display: 'flex',
     flexDirection: 'column',
-    background: '#2c2c2c',
+  },
+  headerContainer: {
+    padding: 0,
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    backgroundColor: 'rgba(255, 255, 255, 0.8)',
+  },
+  toggleMenuContainer: {
+    width: '100%',
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  menuButtonContainer: {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: '0 10px 10px',
   },
   footerContainer: {
     display: 'flex',
@@ -46,6 +121,7 @@ const styles = {
     justifyContent: 'space-between',
     alignItems: 'center',
     padding: '30px 60px',
+    background: '#2c2c2c',
   },
   snsContainer: {
     display: 'flex',
@@ -62,4 +138,27 @@ const styles = {
     color: 'white',
     padding: 0,
   },
+  toggleIcon: {
+    width: 24,
+    height: 24,
+    padding: 0,
+  },
+  toggleMenuButton: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    background: 'white',
+    border: '1px solid lightGray',
+    borderRadius: 3,
+    width: 50,
+    height: 44,
+    margin: 16,
+  },
+  menuButton: {
+    fontSize: '1em',
+    fontWeight: 'bold',
+    color: '#f8f9fa',
+    margin: '10px 0',
+  }
 }

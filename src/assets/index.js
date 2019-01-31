@@ -7,6 +7,7 @@ import profile from './images/profile.jpg'
 import kiss from './images/kiss.svg'
 import fast from './images/fast.svg'
 import design from './images/design.svg'
+import menu from './images/menu.svg'
 
 import ss_en_1_flashCard from './images/ss-flash-cards/ss_1_en.png'
 import ss_en_2_flashCard from './images/ss-flash-cards/ss_2_en.png'
@@ -138,6 +139,7 @@ export const images = {
   kiss,
   fast,
   design,
+  menu,
 }
 
 // MARK: - Fonts

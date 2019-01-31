@@ -10,8 +10,9 @@ export default class About extends Component {
   )
 
   render() {
+    const { id } = this.props
     return (
-      <div style={styles.container}>
+      <div style={styles.container} id={id}>
         <h1 style={styles.title}>About</h1>
         <div style={styles.contentsContainer}>
           {this.renderItem(images.kiss, 'KISS (Keep it short and simple), My favorite quote. I always keep it mind when I code.')}

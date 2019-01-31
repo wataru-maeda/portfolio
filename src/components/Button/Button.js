@@ -5,6 +5,7 @@ export default ({
   style = {},
   className = '',
   onClick,
+  children,
 }) => {
   return (
     <button
@@ -13,6 +14,7 @@ export default ({
       onClick={onClick}
     >
       {title}
+      {children}
     </button>
   )
 }

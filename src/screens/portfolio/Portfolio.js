@@ -12,10 +12,10 @@ export default class Portfolio extends Component {
       <Navigation>
         <div style={styles.container}>
           <Header />
-          <About />
-          <Me />
-          <Projects />
-          <Inquiry />
+          <About id="about"/>
+          <Me id="me"/>
+          <Projects id="projects"/>
+          <Inquiry id="inquiry"/>
         </div>
       </Navigation>
     );

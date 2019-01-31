@@ -12,7 +12,7 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
-    height: '80vh',
+    height: '85vh',
     padding: 60,
   },
   title: {

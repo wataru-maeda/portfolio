@@ -43,8 +43,9 @@ export default class Me extends Component {
   )
 
   render() {
+    const { id } = this.props
     return (
-      <div style={styles.container}>
+      <div style={styles.container} id={id}>
         <h1 style={styles.title}>Profile & Skills</h1>
         <div style={styles.contentsContainer}>
           {this.renderProfile()}

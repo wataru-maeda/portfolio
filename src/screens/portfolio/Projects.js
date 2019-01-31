@@ -65,9 +65,10 @@ export default class Projects extends Component {
   }
 
   render() {
+    const { id } = this.props
     const { selected } = this.state
     return (
-      <div style={styles.container}>
+      <div style={styles.container} id={id}>
         <h1 style={styles.title}>Publishing Apps</h1>
         {this.renderButtons()}
         {(selected === ALL || selected === IOS) && this.renderPlatform(data.ios)}

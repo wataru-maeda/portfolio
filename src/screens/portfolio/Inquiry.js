@@ -7,8 +7,9 @@ export default class Inquiry extends Component {
   }
 
   render() {
+    const { id } = this.props
     return (
-      <div className="bg-inquiry" style={styles.container}>
+      <div className="bg-inquiry" style={styles.container} id={id}>
         <h1 style={styles.title}>GET IN TOUCH</h1>
         <div style={styles.contentsContainer}>
           <div style={styles.userContainer}>

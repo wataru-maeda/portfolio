@@ -78,7 +78,9 @@ export default class Navigation extends Component {
       <div id="outer-container">
         <SideMenu
           isOpen={isOpen}
-          onStateChange={(newState) => this.setState({ isOpen: newState.isOpen })}>
+          onStateChange={(newState) => {
+            this.setState({ isOpen: newState.isOpen })
+          }}>
           {this.renderMenu()}
         </SideMenu>
         <div style={styles.container} id="page-wrap">
@@ -102,7 +104,7 @@ const styles = {
     flexDirection: 'column',
     justifyContent: 'space-between',
     alignItems: 'center',
-    backgroundColor: 'rgba(255, 255, 255, 0.8)',
+    // backgroundColor: 'rgba(255, 255, 255, 0.8)',
   },
   toggleMenuContainer: {
     width: '100%',
@@ -157,7 +159,7 @@ const styles = {
     borderRadius: 3,
     width: 50,
     height: 44,
-    margin: 16,
+    margin: '32px 32px 0 0',
   },
   menuButton: {
     fontSize: '1em',

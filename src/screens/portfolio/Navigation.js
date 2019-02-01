@@ -1,20 +1,17 @@
 import React, { Component } from 'react'
 import { images } from '../../assets'
 import Button from '../../components/Button'
-import { Collapse } from 'reactstrap'
+import SideMenu from '../../components/SideMenu'
 
 export default class Navigation extends Component {
   state = {
     isOpen: false,
   }
 
-  renderMenu = () => {
+  renderHeader = () => {
     const { isOpen } = this.state
-    const navStyle = isOpen
-      ? {...styles.headerContainer, backgroundColor: 'rgba(10, 10, 10, 0.6)'}
-      : styles.headerContainer
     return (
-      <nav className="navbar sticky-top" style={navStyle}>
+      <nav className="navbar sticky-top" style={styles.headerContainer}>
         <div style={styles.toggleMenuContainer}>
           <div />
           <Button
@@ -23,43 +20,42 @@ export default class Navigation extends Component {
             <img src={images.menu} style={styles.toggleIcon} />
           </Button>
         </div>
-        <div style={styles.toggleMenuContainer}>
-          <Collapse isOpen={isOpen} style={{ width: '100%' }}>
-            <div style={styles.menuButtonContainer}>
-              <a
-                className="page-scroll"
-                style={styles.menuButton}
-                href="#about"
-                onClick={() => {
-                  this.setState({ isOpen: false })
-                }}>About</a>
-              <a
-                className="page-scroll"
-                style={styles.menuButton}
-                href="#me"
-                onClick={() => {
-                  this.setState({ isOpen: false })
-                }}>Profile</a>
-              <a
-                className="page-scroll"
-                style={styles.menuButton}
-                href="#projects"
-                onClick={() => {
-                  this.setState({ isOpen: false })
-                }}>Portfolio</a>
-              <a
-                className="page-scroll"
-                style={styles.menuButton}
-                href="#inquiry"
-                onClick={() => {
-                  this.setState({ isOpen: false })
-                }}>Inquiry</a>
-            </div>
-          </Collapse>
-        </div>
       </nav>
     )
   }
+
+  renderMenu = () => (
+    <div style={styles.menuButtonContainer}>
+      <a
+        className="page-scroll"
+        style={styles.menuButton}
+        href="#about"
+        onClick={() => {
+          this.setState({ isOpen: false })
+        }}>About</a>
+      <a
+        className="page-scroll"
+        style={styles.menuButton}
+        href="#me"
+        onClick={() => {
+          this.setState({ isOpen: false })
+        }}>Profile</a>
+      <a
+        className="page-scroll"
+        style={styles.menuButton}
+        href="#projects"
+        onClick={() => {
+          this.setState({ isOpen: false })
+        }}>Portfolio</a>
+      <a
+        className="page-scroll"
+        style={styles.menuButton}
+        href="#inquiry"
+        onClick={() => {
+          this.setState({ isOpen: false })
+        }}>Inquiry</a>
+    </div>
+  )
 
   renderFooter = () => {
     return (
@@ -72,17 +68,24 @@ export default class Navigation extends Component {
           <i className="fa fa-twitter" style={styles.snsIcon}/>
         </div>
       </div>
-
     )
   }
 
   render() {
+    const { isOpen } = this.state
     const { children } = this.props
     return (
-      <div style={styles.container}>
-        {this.renderMenu()}
-        {children}
-        {this.renderFooter()}
+      <div id="outer-container">
+        <SideMenu
+          isOpen={isOpen}
+          onStateChange={(newState) => this.setState({ isOpen: newState.isOpen })}>
+          {this.renderMenu()}
+        </SideMenu>
+        <div style={styles.container} id="page-wrap">
+          {this.renderHeader()}
+          {children}
+          {this.renderFooter()}
+        </div>
       </div>
     )
   }
@@ -109,6 +112,7 @@ const styles = {
     alignItems: 'center',
   },
   menuButtonContainer: {
+    width: '100%',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',

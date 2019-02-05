@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Radium from 'radium'
 import { images } from '../../assets'
 
 const skills = [
@@ -11,7 +12,7 @@ const skills = [
   { name: 'UI Design', frequency: 40 },
 ]
 
-export default class Me extends Component {
+class Me extends Component {
   renderProfile = () => {
     return (
       <div style={styles.profileContainer}>
@@ -63,12 +64,18 @@ const styles = {
     justifyContent: 'center',
     alignItems: 'center',
     padding: 60,
+    '@media (max-width: 736px)': {
+      padding: '60px 15px',
+    },
   },
   contentsContainer: {
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
+    '@media (max-width: 736px)': {
+      flexDirection: 'column',
+    },
   },
   profileContainer: {
     width: '40%',
@@ -76,9 +83,15 @@ const styles = {
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
+    '@media (max-width: 736px)': {
+      width: '100%',
+    },
   },
   skillsContainer: {
     width: '50%',
+    '@media (max-width: 736px)': {
+      width: '100%',
+    },
   },
   skillItemContainer: {
     flex: 1,
@@ -88,6 +101,9 @@ const styles = {
     justifyContent: 'center',
     alignItems: 'center',
     margin: '10px 20px',
+    '@media (max-width: 736px)': {
+      padding: '0 20px 0 0',
+    },
   },
   skillFrequencyContainer: {
     flex: 1,
@@ -130,3 +146,5 @@ const styles = {
     borderRadius: '0 3px 3px 0'
   },
 }
+
+export default Radium(Me)

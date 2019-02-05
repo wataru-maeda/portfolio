@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
+import Radium from 'radium'
 import Input from '../../components/Input'
 import Button from '../../components/Button'
 
-export default class Inquiry extends Component {
+class Inquiry extends Component {
   onChange = () => {
   }
 
@@ -54,23 +55,35 @@ const styles = {
     alignItems: 'center',
     background: '#f2f2f2',
     padding: '80px 160px',
+    '@media (max-width: 1024px)': {
+      padding: '60px 30px',
+    },
   },
   contentsContainer: {
     width: '100%',
     display: 'flex',
     flexDirection: 'row',
+    '@media (max-width: 736px)': {
+      flexDirection: 'column',
+    },
   },
   userContainer: {
     flex: 1,
     display: 'flex',
     flexDirection: 'column',
     margin: '0 20px 0 0',
+    '@media (max-width: 736px)': {
+      margin: 0,
+    },
   },
   messageContainer: {
     flex: 1,
     display: 'flex',
     flexDirection: 'column',
     margin: '0 0 0 20px',
+    '@media (max-width: 736px)': {
+      margin: 0,
+    },
   },
   title: {
     fontSize: '2em',
@@ -81,8 +94,11 @@ const styles = {
     fontSize: '1.5em',
     fontWeight: 'bold',
     width: '30%',
+    minWidth: 300,
     background: 'black',
     border: 'none',
     margin: '60px 0 0',
   },
 }
+
+export default Radium(Inquiry)

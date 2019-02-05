@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
+import Radium from 'radium'
 import { images } from '../../assets'
 import Button from '../../components/Button'
 import SideMenu from '../../components/SideMenu'
 
-export default class Navigation extends Component {
+class Navigation extends Component {
   state = {
     isOpen: false,
   }
@@ -128,19 +129,25 @@ const styles = {
     alignItems: 'center',
     padding: '30px 60px',
     background: '#2c2c2c',
+    '@media (max-width: 736px)': {
+      flexDirection: 'column',
+    },
   },
   snsContainer: {
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    width: 176,
+    width: 150,
   },
   copyRightText: {
     color: 'white',
     fontSize: 16,
+    '@media (max-width: 736px)': {
+      margin: '0 0 16px',
+    },
   },
   snsIcon: {
-    fontSize: 24,
+    fontSize: 20,
     color: 'white',
     padding: 0,
   },
@@ -168,3 +175,6 @@ const styles = {
     margin: '10px 0',
   }
 }
+
+
+export default Radium(Navigation)

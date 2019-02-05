@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
+import Radium from 'radium'
 import { images } from '../../assets' 
 
-export default class About extends Component {
+class About extends Component {
   renderItem = (src, desc) => (
     <div style={styles.itemContainer}>
       <img src={src} style={styles.itemImage} />
@@ -32,12 +33,20 @@ const styles = {
     alignItems: 'center',
     background: '#f2f2f2',
     padding: 60,
+    alignItems: 'center',
+    '@media (max-width: 736px)': {
+      flexDirection: 'column',
+      padding: '60px 15px',
+    },
   },
   contentsContainer: {
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
+    '@media (max-width: 736px)': {
+      flexDirection: 'column',
+    },
   },
   itemContainer: {
     flex: 1,
@@ -62,3 +71,5 @@ const styles = {
     color: '#63636e',
   }
 }
+
+export default Radium(About)

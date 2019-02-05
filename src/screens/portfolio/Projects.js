@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Radium from 'radium'
 import { images } from '../../assets'
 import Button from '../../components/Button'
 
@@ -8,7 +9,7 @@ const ANDROID = 'Android'
 const HYBRID = 'Hybrid'
 const WEB = 'Web'
 
-export default class Projects extends Component {
+class Projects extends Component {
   state = {
     selected: ALL,
   }
@@ -141,6 +142,9 @@ const styles = {
     alignItems: 'center',
     background: 'white',
     padding: 60,
+    '@media (max-width: 736px)': {
+      padding: '60px 15px',
+    }
   },
   contentsContainer: {
     width: '100%',
@@ -216,6 +220,9 @@ const styles = {
     maxWidth: '30%',
     width: 'auto',
     height: 'auto',
+    '@media (max-width: 736px)': {
+      maxWidth: '40%',
+    }
   },
   button: {
     background: '#f8f9fa',
@@ -232,3 +239,5 @@ const styles = {
     margin: '0 2px',
   },
 }
+
+export default Radium(Projects)

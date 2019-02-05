@@ -1,12 +1,19 @@
 import React, { Component } from 'react'
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
 import Portfolio from './screens/portfolio'
+import ReactGA from 'react-ga'
+import { GA_TRACKING_KEY } from './utils/const'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'font-awesome/css/font-awesome.min.css'
 import './styles/global.css'
 
 export default class Router extends Component {
+  componentWillMount() {
+    ReactGA.initialize(GA_TRACKING_KEY);
+    ReactGA.pageview('/home');
+  }
+
   render() {
     const loggedIn = false
     return (

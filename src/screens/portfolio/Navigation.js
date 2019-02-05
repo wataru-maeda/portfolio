@@ -158,7 +158,7 @@ const styles = {
     border: '1px solid lightGray',
     borderRadius: 3,
     width: 50,
-    height: 44,
+    height: 44, 
     margin: '32px 32px 0 0',
   },
   menuButton: {

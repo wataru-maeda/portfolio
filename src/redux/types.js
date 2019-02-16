@@ -1,2 +1,2 @@
 
-export const USER_NAME = 'USER_NAME';
+export const LANG_CURRENT = 'LANG_CURRENT';

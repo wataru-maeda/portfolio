@@ -1,16 +1,17 @@
 import * as types from '../types'
+import { LANG_EN } from '../../utils/const'
 
 const initialState = {
-  name: false,
+  now: LANG_EN,
 }
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case types.USER_NAME:
+    case types.LANG_CURRENT:
       return {
         ...state,
-        status: types.USER_NAME,
-        name: action.payload,
+        status: action.type,
+        now: action.payload,
       };
     default:
       return state;

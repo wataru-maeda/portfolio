@@ -8,6 +8,8 @@ import kiss from './images/kiss.svg'
 import fast from './images/fast.svg'
 import design from './images/design.svg'
 import menu from './images/menu.svg'
+import jp from './images/jp.svg'
+import usa from './images/usa.svg'
 
 import ss_en_1_flashCard from './images/ss-flash-cards/ss_1_en.jpg'
 import ss_en_2_flashCard from './images/ss-flash-cards/ss_2_en.jpg'
@@ -140,6 +142,8 @@ export const images = {
   fast,
   design,
   menu,
+  jp,
+  usa,
 }
 
 // MARK: - Fonts

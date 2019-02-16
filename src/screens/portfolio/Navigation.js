@@ -27,34 +27,43 @@ class Navigation extends Component {
 
   renderMenu = () => (
     <div style={styles.menuButtonContainer}>
-      <a
-        className="page-scroll"
-        style={styles.menuButton}
-        href="#about"
-        onClick={() => {
-          this.setState({ isOpen: false })
-        }}>About</a>
-      <a
-        className="page-scroll"
-        style={styles.menuButton}
-        href="#me"
-        onClick={() => {
-          this.setState({ isOpen: false })
-        }}>Profile</a>
-      <a
-        className="page-scroll"
-        style={styles.menuButton}
-        href="#projects"
-        onClick={() => {
-          this.setState({ isOpen: false })
-        }}>Portfolio</a>
-      <a
-        className="page-scroll"
-        style={styles.menuButton}
-        href="#inquiry"
-        onClick={() => {
-          this.setState({ isOpen: false })
-        }}>Inquiry</a>
+      <div style={styles.buttonGroupContainer}>
+        <a
+          className="page-scroll"
+          style={styles.menuButton}
+          href="#about"
+          onClick={() => {
+            this.setState({ isOpen: false })
+          }}>About</a>
+        <a
+          className="page-scroll"
+          style={styles.menuButton}
+          href="#me"
+          onClick={() => {
+            this.setState({ isOpen: false })
+          }}>Profile</a>
+        <a
+          className="page-scroll"
+          style={styles.menuButton}
+          href="#projects"
+          onClick={() => {
+            this.setState({ isOpen: false })
+          }}>Portfolio</a>
+        <a
+          className="page-scroll"
+          style={styles.menuButton}
+          href="#inquiry"
+          onClick={() => {
+            this.setState({ isOpen: false })
+          }}>Inquiry</a>
+      </div>
+      <Button
+        style={styles.languageButtonContainer}
+        onClick={() => {}}>
+        <img src={images.usa} style={styles.languageToggleIcon} />
+        <aside className="fa fa-long-arrow-right" style={{ padding: '0 4px', fontSize: 18 }}/>
+        <img src={images.jp} style={styles.languageToggleIcon} />
+      </Button>
     </div>
   )
 
@@ -116,11 +125,28 @@ const styles = {
   },
   menuButtonContainer: {
     width: '100%',
+    height: '100%',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: '0 10px 10px',
+  },
+  buttonGroupContainer: {
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    padding: '0 10px 10px',
+  },
+  languageButtonContainer: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    outline: 'none',
+    boxShadow: 'none',
+    width: '100%',
+    color: 'white',
   },
   footerContainer: {
     display: 'flex',
@@ -154,6 +180,11 @@ const styles = {
   toggleIcon: {
     width: 24,
     height: 24,
+    padding: 0,
+  },
+  languageToggleIcon: {
+    width: 18,
+    height: 18,
     padding: 0,
   },
   toggleMenuButton: {

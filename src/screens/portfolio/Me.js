@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Radium from 'radium'
 import { images } from '../../assets'
+import { profile } from '../../localization/pf'
 
 const skills = [
   { name: 'Swift', frequency: 90 },
@@ -14,14 +15,11 @@ const skills = [
 
 class Me extends Component {
   renderProfile = () => {
+    const { lang } = this.props
     return (
       <div style={styles.profileContainer}>
         <img src={images.profile} style={styles.profileImg} />
-        <p style={styles.description}>
-          Hello, my name is Wataru who is creating software for customers.
-          I have created app, web and sometimes APIs for customers since 2014.
-          If you looking for a frontend developer, here I come. Feel free to contact me!
-        </p>
+        <p style={styles.description}>{profile.me[lang]}</p>
       </div>
     )
   }

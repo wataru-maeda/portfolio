@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
 import Portfolio from './screens/portfolio'
 import ReactGA from 'react-ga'
-import { GA_TRACKING_KEY } from './utils/const'
+import { GA_TRACKING_KEY } from './utils/keys'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'font-awesome/css/font-awesome.min.css'

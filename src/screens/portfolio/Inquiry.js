@@ -2,13 +2,14 @@ import React, { Component } from 'react'
 import Radium from 'radium'
 import Input from '../../components/Input'
 import Button from '../../components/Button'
+import { message } from '../../localization/pf'
 
 class Inquiry extends Component {
   onChange = () => {
   }
 
   render() {
-    const { id } = this.props
+    const { id, lang } = this.props
     return (
       <div className="bg-inquiry" style={styles.container} id={id}>
         <h1 style={styles.title}>GET IN TOUCH</h1>
@@ -17,31 +18,31 @@ class Inquiry extends Component {
             <Input
               type="text"
               name="name"
-              title="Name *"
+              title={message.name[lang]}
               placeholder=""
               onChange={this.onChange}
             />
             <Input
               type="email"
               name="email"
-              title="Email *"
+              title={message.email[lang]}
               placeholder=""
               onChange={this.onChange}
             />
             <Input
               type="phone"
               name="phone"
-              title="Phone"
+              title={message.phone[lang]}
               placeholder=""
               onChange={this.onChange}
             />
           </div>
           <div className="form-group" style={styles.messageContainer}>
-            <label>Message *</label>
+            <label>{message.message[lang]}</label>
             <textarea className="form-control rounded-1" rows="11"></textarea>
           </div>
         </div>
-        <Button title="Submit" className="btn-primary" style={styles.submitButton}/>
+        <Button title={message.submit[lang]} className="btn-primary" style={styles.submitButton}/>
       </div>
     )
   }

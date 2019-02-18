@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import Navigation from './Navigation'
 import Header from './Header'
 import About from './About'
@@ -6,16 +7,17 @@ import Projects from './Projects'
 import Inquiry from './Inquiry'
 import Me from './Me'
 
-export default class Portfolio extends Component {
+class Portfolio extends Component {
   render() {
+    const { lang } = this.props
     return (
-      <Navigation>
+      <Navigation lang={lang}>
         <div style={styles.container}>
-          <Header />
-          <About id="about"/>
-          <Me id="me"/>
-          <Projects id="projects"/>
-          <Inquiry id="inquiry"/>
+          <Header lang={lang}/>
+          <About id="about" lang={lang}/>
+          <Me id="me" lang={lang}/>
+          <Projects id="projects" lang={lang}/>
+          <Inquiry id="inquiry" lang={lang}/>
         </div>
       </Navigation>
     );
@@ -30,3 +32,11 @@ const styles = {
     minHeight: '100vh',
   },
 }
+
+const mapStateToProps = state => {
+  return {
+    lang: state.lang.now,
+  }
+}
+
+export default connect(mapStateToProps)(Portfolio)

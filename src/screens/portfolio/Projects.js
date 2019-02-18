@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Radium from 'radium'
 import { images } from '../../assets'
 import Button from '../../components/Button'
+import { apps } from '../../localization/pf'
 
 const ALL = 'All'
 const IOS = 'iOS'
@@ -15,18 +16,19 @@ class Projects extends Component {
   }
 
   renderApp = app => {
+    const { lang } = this.props
     return (
       <div style={styles.appContainer}>
         <div style={styles.appContentsContainer}>
           <img src={app.logo} style={styles.appImage}/>
           <div style={styles.appTitleContainer}>
-            <h1 style={styles.appTitle}>{app.title}</h1>
-            <p style={styles.appSubtitle}>{app.subtitle}</p>
+            <h1 style={styles.appTitle}>{app.title[lang]}</h1>
+            <p style={styles.appSubtitle}>{app.subtitle[lang]}</p>
           </div>
           <button className="btn btn-light" style={styles.moreButton}>More</button>
         </div>
         <div style={styles.ssContainer}>
-          {app.ss.map(imgUrl => (
+          {app.ss[lang].map(imgUrl => (
             <img
               src={imgUrl}
               style={styles.ssImage}
@@ -87,15 +89,15 @@ const data = {
     apps: [
       {
         logo: images.flashcard.icon,
-        title: 'Word book to share',
-        subtitle: 'share your own cards with your friends',
-        ss: images.flashcard.ss.en
+        title: apps.flashCardTitle,
+        subtitle: apps.flashCardDesc,
+        ss: images.flashcard.ss
       },
       {
         logo: images.stickyMemo.icon,
-        title: 'Sticky Memo++',
-        subtitle: 'colorful stickies',
-        ss: images.stickyMemo.ss.en
+        title: apps.stickyMemoTitle,
+        subtitle: apps.stickyMemoDesc,
+        ss: images.stickyMemo.ss
       },
     ]
   },
@@ -104,9 +106,9 @@ const data = {
     apps: [
       {
         logo: images.greattaractive.icon,
-        title: 'Greattractive',
-        subtitle: 'matching app for creators',
-        ss: images.greattaractive.ss.en
+        title: apps.greattaractiveTitle,
+        subtitle: apps.greattaractiveDesc,
+        ss: images.greattaractive.ss
       },
     ]
   },
@@ -115,9 +117,9 @@ const data = {
     apps: [
       {
         logo: images.iosClassForBeginners.icon,
-        title: 'iOS Class for Beginners',
-        subtitle: 'Tutors for iOS development beginners',
-        ss: images.iosClassForBeginners.ss.en
+        title: apps.iosClassTitle,
+        subtitle: apps.iosClassDesc,
+        ss: images.iosClassForBeginners.ss
       },
     ]
   },
@@ -126,9 +128,9 @@ const data = {
     apps: [
       {
         logo: images.comingSoon.icon,
-        title: 'Coming soon...',
-        subtitle: 'In progress',
-        ss: images.comingSoon.ss.en
+        title: apps.tourismTitle,
+        subtitle: apps.tourismDesc,
+        ss: images.comingSoon.ss
       },
     ]
   },

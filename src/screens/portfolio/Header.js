@@ -1,9 +1,10 @@
 import React from 'react'
 import Radium from 'radium'
+import { header } from '../../localization/pf'
 
-const Header = () => (
+const Header = ({ lang }) => (
   <header style={styles.container} className="bg">
-    <h1 style={styles.subtitle}>Frontend Developer</h1>
+    <h1 style={styles.subtitle}>{header.title[lang]}</h1>
     <h1 style={styles.title}>Wataru Maeda</h1>
   </header>
 )

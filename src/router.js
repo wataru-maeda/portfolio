@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
 import Portfolio from './screens/portfolio'
+import { switchLanguage } from './redux/actions/LangActions'
 import ReactGA from 'react-ga'
 import { GA_TRACKING_KEY } from './utils/keys'
 
@@ -23,6 +24,12 @@ export default class Router extends Component {
             ? (
               <Switch>
                 <Route exact path="/" component={Portfolio} />
+                <Route exact path="/jp" render={() => {
+                  switchLanguage()
+                  return (
+                    <Portfolio />
+                  )
+                }} />
                 <Route component={Portfolio} />
                 <Redirect to="/" />
               </Switch>
@@ -30,6 +37,12 @@ export default class Router extends Component {
             : (
               <Switch>
                 <Route exact path="/" component={Portfolio} />
+                <Route exact path="/jp" render={() => {
+                  switchLanguage()
+                  return (
+                    <Portfolio />
+                  )
+                }} />
                 <Route component={Portfolio} />
                 <Redirect to="/" />
               </Switch>

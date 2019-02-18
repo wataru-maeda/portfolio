@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Radium from 'radium'
 import { images } from '../../assets' 
+import { about } from '../../localization/pf'
 
 class About extends Component {
   renderItem = (src, desc) => (
@@ -11,14 +12,14 @@ class About extends Component {
   )
 
   render() {
-    const { id } = this.props
+    const { id, lang } = this.props
     return (
       <div style={styles.container} id={id}>
         <h1 style={styles.title}>About</h1>
         <div style={styles.contentsContainer}>
-          {this.renderItem(images.kiss, 'KISS (Keep it short and simple), My favorite quote. I always keep it mind when I code.')}
-          {this.renderItem(images.fast, 'Love everything fast. Design fast, code fast, launch fast and the apps I make is fast!')}
-          {this.renderItem(images.design, 'Always keep in mind for the great UI/UX. Following design principle.')}
+          {this.renderItem(images.kiss, about.kiss[lang])}
+          {this.renderItem(images.fast, about.fast[lang])}
+          {this.renderItem(images.design, about.design[lang])}
         </div>
       </div>
     )

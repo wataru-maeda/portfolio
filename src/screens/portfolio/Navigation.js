@@ -3,6 +3,8 @@ import Radium from 'radium'
 import { images } from '../../assets'
 import Button from '../../components/Button'
 import SideMenu from '../../components/SideMenu'
+import { LANG_EN, LANG_JP } from '../../utils/const'
+import { switchLanguage } from '../../redux/actions/LangActions'
 
 class Navigation extends Component {
   state = {
@@ -25,47 +27,62 @@ class Navigation extends Component {
     )
   }
 
-  renderMenu = () => (
-    <div style={styles.menuButtonContainer}>
-      <div style={styles.buttonGroupContainer}>
-        <a
-          className="page-scroll"
-          style={styles.menuButton}
-          href="#about"
+  renderMenu = () => {
+    const { lang } = this.props
+    return (
+      <div style={styles.menuButtonContainer}>
+        <div style={styles.buttonGroupContainer}>
+          <a
+            className="page-scroll"
+            style={styles.menuButton}
+            href="#about"
+            onClick={() => {
+              this.setState({ isOpen: false })
+            }}>About</a>
+          <a
+            className="page-scroll"
+            style={styles.menuButton}
+            href="#me"
+            onClick={() => {
+              this.setState({ isOpen: false })
+            }}>Profile</a>
+          <a
+            className="page-scroll"
+            style={styles.menuButton}
+            href="#projects"
+            onClick={() => {
+              this.setState({ isOpen: false })
+            }}>Portfolio</a>
+          <a
+            className="page-scroll"
+            style={styles.menuButton}
+            href="#inquiry"
+            onClick={() => {
+              this.setState({ isOpen: false })
+            }}>Inquiry</a>
+        </div>
+        <Button
+          style={styles.languageButtonContainer}
           onClick={() => {
+            switchLanguage()
             this.setState({ isOpen: false })
-          }}>About</a>
-        <a
-          className="page-scroll"
-          style={styles.menuButton}
-          href="#me"
-          onClick={() => {
-            this.setState({ isOpen: false })
-          }}>Profile</a>
-        <a
-          className="page-scroll"
-          style={styles.menuButton}
-          href="#projects"
-          onClick={() => {
-            this.setState({ isOpen: false })
-          }}>Portfolio</a>
-        <a
-          className="page-scroll"
-          style={styles.menuButton}
-          href="#inquiry"
-          onClick={() => {
-            this.setState({ isOpen: false })
-          }}>Inquiry</a>
+          }}>
+          <img  // eslint-disable-line
+            style={styles.languageToggleIcon}
+            src={lang === LANG_EN ? images.usa : images.jp}
+          />
+          <aside
+            className="fa fa-long-arrow-right"
+            style={{ padding: '0 4px', fontSize: 18 }}
+          />
+          <img  // eslint-disable-line
+            style={styles.languageToggleIcon}
+            src={lang === LANG_EN ? images.jp : images.usa}
+          />
+        </Button>
       </div>
-      <Button
-        style={styles.languageButtonContainer}
-        onClick={() => {}}>
-        <img src={images.usa} style={styles.languageToggleIcon} />
-        <aside className="fa fa-long-arrow-right" style={{ padding: '0 4px', fontSize: 18 }}/>
-        <img src={images.jp} style={styles.languageToggleIcon} />
-      </Button>
-    </div>
-  )
+    )
+  }
 
   renderFooter = () => {
     return (

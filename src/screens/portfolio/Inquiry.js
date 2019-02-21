@@ -3,13 +3,32 @@ import Radium from 'radium'
 import Input from '../../components/Input'
 import Button from '../../components/Button'
 import { message } from '../../localization/pf'
+import { vali } from '../../utils/validation'
 
 class Inquiry extends Component {
-  onChange = () => {
+  state = {
+    name: '',
+    email: '',
+    phone: '',
+    errors: {},
+  }
+
+  onChange = (e) => {
+    const { name, value } = e.target
+    this.setState({ [name] : value })
+  }
+
+  onSubmit = () => {
+    const { isError, errors }  = vali(this.state)
+    this.setState({ errors })
+    if (isError) return
+    
+    // TOOD: send email
   }
 
   render() {
     const { id, lang } = this.props
+    const { errors } = this.state
     return (
       <div className="bg-inquiry" style={styles.container} id={id}>
         <h1 style={styles.title}>GET IN TOUCH</h1>
@@ -20,6 +39,7 @@ class Inquiry extends Component {
               name="name"
               title={message.name[lang]}
               placeholder=""
+              error={errors.name}
               onChange={this.onChange}
             />
             <Input
@@ -27,6 +47,7 @@ class Inquiry extends Component {
               name="email"
               title={message.email[lang]}
               placeholder=""
+              error={errors.email}
               onChange={this.onChange}
             />
             <Input
@@ -34,6 +55,7 @@ class Inquiry extends Component {
               name="phone"
               title={message.phone[lang]}
               placeholder=""
+              error={errors.phone}
               onChange={this.onChange}
             />
           </div>
@@ -42,7 +64,12 @@ class Inquiry extends Component {
             <textarea className="form-control rounded-1" rows="11"></textarea>
           </div>
         </div>
-        <Button title={message.submit[lang]} className="btn-primary" style={styles.submitButton}/>
+        <Button
+          title={message.submit[lang]}
+          className="btn-primary"
+          style={styles.submitButton}
+          onClick={this.onSubmit}
+        />
       </div>
     )
   }

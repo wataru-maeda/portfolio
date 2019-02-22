@@ -43,7 +43,7 @@ const isValid = (name, value) => {
 
 // MARK: - Accessor
 
-export const vali = (state, lang = ) => {  // eslint-disable-line
+export const vali = (state) => {  // eslint-disable-line
   let errors = {}
   let isError = false
   Object.keys(state).forEach(key => { // eslint-disable-line

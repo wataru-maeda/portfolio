@@ -24,6 +24,7 @@ class Inquiry extends Component {
     if (isError) return
     
     // TOOD: send email
+    
   }
 
   render() {

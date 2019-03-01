@@ -20,7 +20,8 @@
     "redux": "^4.0.1",
     "redux-logger": "^3.0.6",
     "redux-promise-middleware": "^5.1.1",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "sweetalert": "^2.1.2"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -36,5 +37,6 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "proxy": "http://localhost:3001/"
 }

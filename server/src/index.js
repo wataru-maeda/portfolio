@@ -10,17 +10,18 @@ app.use(morgan('short'))
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
-app.get('/', (req, res) => {
-  res.send('Hello from Rooooooooot')
-})
-
 app.post('/sendMail', async (req, res) => {
+  
+  // send inquiry form to me
   sendInquiry(req.body).then(retInq => {
-    if (!retInq.success) return res.json(retInq)
+    if (!retInq.success) 
+      return res.json(retInq).send()
+    
+    // send confirmation form to user
     sendConfirmation(req.body).then(retConf => {
-      return retConf.success
-        ? res.json({ success: true })
-        : res.json(retConf)
+      retConf.success
+        ? res.json({ success: true }).send()
+        : res.json(retConf).send()
     })
   }) 
 })

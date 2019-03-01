@@ -1,16 +1,23 @@
 import React, { Component } from 'react'
+import axios from 'axios'
 import Radium from 'radium'
+import swal from 'sweetalert'
 import Input from '../../components/Input'
 import Button from '../../components/Button'
 import { message } from '../../localization/pf'
 import { vali } from '../../utils/validation'
 
+const initialState = {
+  name: '',
+  email: '',
+  phone: '',
+  message: '',
+  errors: {},
+}
+
 class Inquiry extends Component {
   state = {
-    name: '',
-    email: '',
-    phone: '',
-    errors: {},
+    ...initialState,
   }
 
   onChange = (e) => {
@@ -18,13 +25,29 @@ class Inquiry extends Component {
     this.setState({ [name] : value })
   }
 
+  componentWillMount() {
+    swal({
+      title: "Here's a title!",
+    });
+  }
+
   onSubmit = () => {
     const { isError, errors }  = vali(this.state)
     this.setState({ errors })
     if (isError) return
     
-    // TOOD: send email
-    
+    // send email
+    const { lang } = this.props
+    const { name, email, phone, message } = this.state
+    axios.post('/sendMail', { name, email, phone, message, lang }).then(res => {
+      const { data: { success } } = res
+      if (success) {
+        
+        this.setState({ ...initialState })
+      } else {
+
+      }
+    }).catch(e => console.log('error :', e))
   }
 
   render() {
@@ -62,7 +85,12 @@ class Inquiry extends Component {
           </div>
           <div className="form-group" style={styles.messageContainer}>
             <label>{message.message[lang]}</label>
-            <textarea className="form-control rounded-1" rows="11"></textarea>
+            <textarea
+              rows="11"
+              name="message"
+              className="form-control rounded-1"
+              onChange={this.onChange}
+            />
           </div>
         </div>
         <Button

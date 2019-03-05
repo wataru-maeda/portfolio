@@ -10,7 +10,13 @@ app.use(morgan('short'))
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
+app.get('/', (req, res) => {
+  res.send('/')
+})
+
 app.post('/sendMail', async (req, res) => {
+
+  console.log('[######] come!!')
   
   // send inquiry form to me
   sendInquiry(req.body).then(retInq => {

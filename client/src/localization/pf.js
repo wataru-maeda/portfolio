@@ -9,7 +9,7 @@ export const header = {
 export const about = {
   kiss: {
     en: 'KISS (Keep it short and simple), My favorite quote. I always keep it mind when I code.',
-    jp: 'KISS (Keep it short and simple), コーディングを行う際、常に簡潔で、分かりやすいな書き方を心がけています',
+    jp: 'KISS (Keep it short and simple), コーディングを行う際、常に簡潔で、分かりやすい書き方を心がけています',
   },
   fast: {
     en: 'Love everything fast. Design fast, code fast, launch fast and the apps I make is fast!',
@@ -17,7 +17,7 @@ export const about = {
   },
   design: {
     en: 'Always keep in mind for the great UI/UX. Following design principle.',
-    jp: 'より良いUI/UXとは何かを常にに考えています。デザインの基本原則に忠実に従います。',
+    jp: 'より良いUI/UXとは何かを常に考えています。デザインの基本原則に忠実に従います。',
   },
 }
 
@@ -71,7 +71,7 @@ export const apps = {
   },
 }
 
-export const message = {
+export const inquiry = {
   name: {
     en: 'Name *',
     jp: 'お名前 *',
@@ -91,5 +91,17 @@ export const message = {
   submit: {
     en: 'Submit',
     jp: '送信',
+  },
+  emailSentTitle: {
+    en: 'Your message has been sent',
+    jp: 'お問い合わせありがとうございます',
+  },
+  emailSentMessage: {
+    en: 'We are sending you a confirmation email.',
+    jp: 'ご記入いただいた情報は無事送信されました。確認のため、自動返信メールをお送りしております。',
+  },
+  emailFailedTitle: {
+    en: 'Email error',
+    jp: 'メール送信失敗',
   },
 }

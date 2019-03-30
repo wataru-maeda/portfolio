@@ -6,7 +6,7 @@ import {
   getNoticeTitle,
   getNoticeMessage,
   getConfirmationMessage,
-  getErrorUnknow,
+  getErrorUnknown,
 } from '../utils/const'
 
 export const sendInquiry = async ({
@@ -16,7 +16,7 @@ export const sendInquiry = async ({
   message,
   lang = LANG_EN,
 }) => {
-  return (name && email && phone && message)
+  return (name && email && message)
     ? await sendMail({
       from: config.email.from,
       to: config.email.from,
@@ -26,7 +26,7 @@ export const sendInquiry = async ({
     })
     : {
       success: false,
-      error: getErrorUnknow(lang),
+      error: getErrorUnknown(lang),
     }
 }
 
@@ -47,6 +47,6 @@ export const sendConfirmation = async ({
     })
     : {
       success: false,
-      error: getErrorUnknow(lang)
+      error: getErrorUnknown(lang)
     }
 }

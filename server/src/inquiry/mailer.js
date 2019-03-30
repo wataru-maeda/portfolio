@@ -1,6 +1,6 @@
 import nodemailer from 'nodemailer'
 import config from '../utils/config'
-import { getErrorUnknow } from '../utils/const'
+import { getErrorUnknown } from '../utils/const'
 
 const mailer = nodemailer.createTransport({
   host: config.email.host,
@@ -22,7 +22,7 @@ export const sendMail = async (option) => {
   } catch (err) {
     return {
       success: false,
-      error: getErrorUnknow(option.lang),
+      error: getErrorUnknown(option.lang),
     }
   }
 }

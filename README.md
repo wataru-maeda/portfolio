@@ -2,20 +2,15 @@
 
 ## Setup
 
-* FE
-`yarn install` under ./
+* FE: `yarn install` under ./
+* BE: `cd functions && yarn install && yarn build` under ./
 
-* BE
-`cd functions && yarn install && yarn build` under ./
-
-## Run on local
+## Run (local)
 
 `firebase serve` under ./ 
 
-* Functions 
-  `firebase serve --only functions` 
-* Hosting 
-  `firebase serve --only hosting` 
+* Functions: `firebase serve --only functions` 
+* Hosting: `firebase serve --only hosting` 
 
 ## Deploy
 

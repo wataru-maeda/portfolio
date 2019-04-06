@@ -1,9 +1,10 @@
+import * as functions from 'firebase-functions'
 import express from 'express'
 import morgan from 'morgan'
 import bodyParser from 'body-parser'
+import path from 'path'
 import { sendInquiry, sendConfirmation } from './inquiry'
 
-const port = 3001
 const app = express()
 
 app.use(morgan('short'))
@@ -11,12 +12,10 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
 app.get('/', (req, res) => {
-  res.send('/')
+  res.send('ok')
 })
 
 app.post('/sendMail', async (req, res) => {
-
-  console.log('[######] come!!')
   
   // send inquiry form to me
   sendInquiry(req.body).then(retInq => {
@@ -30,8 +29,6 @@ app.post('/sendMail', async (req, res) => {
         : res.json(retConf).send()
     })
   }) 
-})
+ })
 
-app.listen(port, () => {
-  console.log(`Server is up and listening in ${port} ...`)
-})
+exports.api = functions.https.onRequest(app);

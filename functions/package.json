@@ -2,7 +2,7 @@
   "name": "functions",
   "description": "Cloud Functions for Firebase",
   "scripts": {
-    "build": "mkdir -p dist && ./node_modules/.bin/babel ./*.js --out-file ./dist/index.js",
+    "build": "mkdir -p dist && ./node_modules/.bin/babel ./*.js ./**/*.js --out-dir ./dist",
     "lint": "eslint .",
     "serve": "firebase serve --only functions",
     "shell": "firebase functions:shell",
@@ -15,9 +15,12 @@
     "node": "8"
   },
   "dependencies": {
+    "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "firebase-admin": "~7.0.0",
-    "firebase-functions": "^2.2.0"
+    "firebase-functions": "^2.2.0",
+    "morgan": "^1.9.1",
+    "nodemailer": "^6.0.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

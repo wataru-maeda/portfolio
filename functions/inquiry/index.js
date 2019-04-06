@@ -1,4 +1,4 @@
-import config from '../utils/config'
+import config  from '../utils/config'
 import { sendMail } from './mailer'
 import {
   LANG_EN,

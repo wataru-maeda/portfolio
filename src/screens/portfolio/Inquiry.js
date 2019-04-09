@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import firebase from 'firebase'
 import axios from 'axios'
 import Radium from 'radium'
 import Input from '../../components/Input'
@@ -55,7 +56,9 @@ class Inquiry extends Component {
     // send email
     const { lang } = this.props
     const { name, email, phone, message } = this.state
-    axios.post('/sendMail', { name, email, phone, message, lang }).then(res => {
+
+    const sendMail = firebase.functions().httpsCallable('sendMail')
+    if (sendMail) sendMail({ name, email, phone, message, lang }).then(res => {
       const { data: { success, message } } = res
       success
         ? this.showSuccess()
@@ -63,6 +66,15 @@ class Inquiry extends Component {
     }).catch(e => {
       this.showError(e.message)
     })
+
+    // axios.post('https://us-central1-portfolio-8316b.cloudfunctions.net/api/sendMail', { name, email, phone, message, lang }).then(res => {
+    //   const { data: { success, message } } = res
+    //   success
+    //     ? this.showSuccess()
+    //     : this.showError(message)
+    // }).catch(e => {
+    //   this.showError(e.message)
+    // })
   }
 
   render() {

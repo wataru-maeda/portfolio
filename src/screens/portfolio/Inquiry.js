@@ -7,6 +7,7 @@ import Button from '../../components/Button'
 import { showAlert } from '../../components/Alert'
 import { inquiry } from '../../localization/pf'
 import { vali } from '../../utils/validation'
+import { FIREBASE_CONFIG } from '../../utils/keys'
 
 const initialState = {
   name: '',
@@ -19,6 +20,10 @@ const initialState = {
 class Inquiry extends Component {
   state = {
     ...initialState,
+  }
+
+  componentWillMount() {
+    firebase.initializeApp(FIREBASE_CONFIG);
   }
 
   onChange = (e) => {
@@ -67,7 +72,7 @@ class Inquiry extends Component {
       this.showError(e.message)
     })
 
-    // axios.post('https://us-central1-portfolio-8316b.cloudfunctions.net/api/sendMail', { name, email, phone, message, lang }).then(res => {
+    // axios.get('https://us-central1-portfolio-8316b.cloudfunctions.net/sendMail', { name, email, phone, message, lang }).then(res => {
     //   const { data: { success, message } } = res
     //   success
     //     ? this.showSuccess()

@@ -18,8 +18,8 @@ export const sendInquiry = async ({
 }) => {
   return (name && email && message)
     ? await sendMail({
-      from: config.email.from,
-      to: config.email.from,
+      from: config.email,
+      to: email,
       subject: getNoticeTitle(),
       text: getNoticeMessage(name, email, phone, message),
       lang,
@@ -39,8 +39,8 @@ export const sendConfirmation = async ({
 }) => {
   return (name && email)
     ? await sendMail({
-      from: config.email.from,
-      to: email,
+      from: config.email,
+      to: config.email,
       subject: getConfirmationTitle(lang),
       text: getConfirmationMessage(name, email, phone, message, lang),
       lang,

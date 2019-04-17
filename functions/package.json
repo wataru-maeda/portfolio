@@ -2,7 +2,7 @@
   "name": "functions",
   "description": "Cloud Functions for Firebase",
   "scripts": {
-    "build": "mkdir -p dist && ./node_modules/.bin/babel ./*.js ./**/*.js --out-dir ./dist",
+    "build": "mkdir -p dist && ./node_modules/.bin/babel ./src/*.js ./src/**/*.js --out-dir ./dist",
     "lint": "eslint .",
     "serve": "firebase serve --only functions",
     "shell": "firebase functions:shell",
@@ -10,17 +10,14 @@
     "deploy": "firebase deploy --only functions",
     "logs": "firebase functions:log"
   },
-  "main": "dist/index.js",
+  "main": "dist/src/index.js",
   "engines": {
     "node": "8"
   },
   "dependencies": {
-    "body-parser": "^1.18.3",
     "cors": "^2.8.5",
-    "express": "^4.16.4",
     "firebase-admin": "~7.0.0",
     "firebase-functions": "^2.2.0",
-    "morgan": "^1.9.1",
     "nodemailer": "^6.0.0"
   },
   "devDependencies": {

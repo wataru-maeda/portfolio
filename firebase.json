@@ -3,7 +3,7 @@
     "public": "build",
     "rewrite": [{
       "source": "**",
-      "functions": "api"
+      "functions": "sendMail"
     }],
     "headers": [
       {

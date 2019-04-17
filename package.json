@@ -27,8 +27,12 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "postbuild": "rimraf build/**/*.map",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "serve:functions": "cd functions; yarn build; cd ..; firebase serve --only functions",
+    "deploy": "yarn build && firebase deploy",
+    "deploy:functions": "cd functions; yarn build; cd ..; firebase deploy --only functions"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -38,6 +42,5 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ],
-  "proxy": "http://localhost:3001/"
+  ]
 }

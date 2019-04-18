@@ -33,7 +33,7 @@ export const getConfirmationMessage = (
   message,
   lang = LANG_EN,
 ) => lang === LANG_EN ? `
-Dear Mr/Miss ${name},
+Dear ${name},
 
 Thank you for your inquiry. We have received your email with following contents. 
 ----------------------------------------

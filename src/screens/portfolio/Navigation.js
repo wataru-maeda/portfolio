@@ -89,10 +89,26 @@ class Navigation extends Component {
       <div style={styles.footerContainer}>
         <aside style={styles.copyRightText}>©️ Wataru 2019</aside>
         <div style={styles.snsContainer}>
-          <i className="fa fa-linkedin" style={styles.snsIcon}/>
-          <i className="fa fa-github" style={styles.snsIcon}/>
-          <i className="fa fa-facebook" style={styles.snsIcon}/>
-          <i className="fa fa-twitter" style={styles.snsIcon}/>
+          <i
+            className="fa fa-linkedin"
+            style={styles.snsIcon}
+            onClick={() => window.open('https://www.linkedin.com/in/wtr0716/')}
+          />
+          <i
+            className="fa fa-github"
+            style={styles.snsIcon}
+            onClick={() => window.open('https://github.com/WataruMaeda')}
+          />
+          <i
+            className="fa fa-facebook"
+            style={styles.snsIcon}
+            onClick={() => window.open('https://www.facebook.com/profile.php?id=100011319736559')}
+          />
+          <i
+            className="fa fa-twitter"
+            style={styles.snsIcon}
+            onClick={() => window.open('https://twitter.com/wtr03876212')}
+          />
         </div>
       </div>
     )
@@ -131,7 +147,6 @@ const styles = {
     flexDirection: 'column',
     justifyContent: 'space-between',
     alignItems: 'center',
-    // backgroundColor: 'rgba(255, 255, 255, 0.8)',
   },
   toggleMenuContainer: {
     width: '100%',

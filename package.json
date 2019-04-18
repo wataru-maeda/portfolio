@@ -34,7 +34,7 @@
     "serve:hosting": "firebase serve --only hosting",
     "serve:functions": "cd functions; yarn build; cd ..; firebase serve --only functions",
     "deploy": "yarn build && firebase deploy",
-    "deploy:hosting": "yarn build && firebase deploy --only functions",
+    "deploy:hosting": "yarn build && firebase deploy --only hosting",
     "deploy:functions": "cd functions; yarn build; cd ..; firebase deploy --only functions"
   },
   "eslintConfig": {

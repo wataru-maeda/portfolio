@@ -13,7 +13,7 @@ export const about = {
   },
   fast: {
     en: 'Love everything fast. Design fast, code fast, launch fast and the apps I make is fast!',
-    jp: '全ての開発段階でスピーディーにタスクをこなすことを心がけています。機能の洗い出し、デザイン、コーディングまで手際よくこなします。',
+    jp: 'スピーディーな開発を心がけています。機能の洗い出し、デザイン、コーディングまで手際よくこなします。',
   },
   design: {
     en: 'Always keep in mind for the great UI/UX. Following design principle.',
@@ -37,6 +37,10 @@ export const apps = {
     en: 'share your own cards with your friends',
     jp: '仲間同士で単語帳をシェア',
   },
+  flashCardUrl: {
+    en: 'https://itunes.apple.com/us/app/id1234657994',
+    jp: 'https://itunes.apple.com/jp/app/id1234657994',
+  },
   stickyMemoTitle: {
     en: 'Sticky Memo++',
     jp: '付箋++',
@@ -44,6 +48,10 @@ export const apps = {
   stickyMemoDesc: {
     en: 'colorful stickies',
     jp: 'カラフルな付箋',
+  },
+  stickyMemoUrl: {
+    en: 'https://itunes.apple.com/us/app/id832492204',
+    jp: 'https://itunes.apple.com/jp/app/id832492204',
   },
   greattaractiveTitle: {
     en: 'Greattractive',
@@ -53,6 +61,10 @@ export const apps = {
     en: 'matching app for creators',
     jp: 'クリエーター同士のマッチングアプリ',
   },
+  greattaractiveUrl: {
+    en: 'https://angel.co/projects/676470-greattractive?src=user_profile',
+    jp: 'https://angel.co/projects/676470-greattractive?src=user_profile',
+  },
   iosClassTitle: {
     en: 'iOS Class for Beginners',
     jp: 'iPhoneアプリ入門コース',
@@ -61,6 +73,10 @@ export const apps = {
     en: 'Tutors for iOS development beginners',
     jp: '初心者のためのアプリ開発入門教室の案内',
   },
+  iosClassUrl: {
+    en: 'https://ios-class-for-beginners.com/ca',
+    jp: 'https://ios-class-for-beginners.com/jp',
+  },
   tourismTitle: {
     en: 'Coming soon...',
     jp: 'Coming soon...',
@@ -68,6 +84,10 @@ export const apps = {
   tourismDesc: {
     en: 'In progress',
     jp: '作成中...',
+  },
+  tourismUrl: {
+    en: 'https://github.com/WataruMaeda/tourism-app',
+    jp: 'https://github.com/WataruMaeda/tourism-app',
   },
 }
 

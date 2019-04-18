@@ -1,8 +1,6 @@
 import React from 'react'
 import './spinner.css'
 
-// import spinner from '../../../public/assets/icons/spinner.svg'
-
 export default ({
   title,
   style = {},
@@ -10,11 +8,6 @@ export default ({
   <div style={{ ...styles.container, ...style }}>
     <div style={styles.contentsContainer}>
       <i className="fa fa-spinner spinner" />
-      {/* <img
-        src={spinner}
-        className="spinner"
-        alt="spinner"
-      /> */}
       {title && <aside style={styles.title}>{title}</aside>}
     </div>
   </div>

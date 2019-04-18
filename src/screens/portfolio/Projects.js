@@ -25,7 +25,10 @@ class Projects extends Component {
             <h1 style={styles.appTitle}>{app.title[lang]}</h1>
             <p style={styles.appSubtitle}>{app.subtitle[lang]}</p>
           </div>
-          <button className="btn btn-light" style={styles.moreButton}>More</button>
+          <button
+            className="btn btn-light"
+            style={styles.moreButton}
+            onClick={() => window.open(app.url[lang])}>More</button>
         </div>
         <div style={styles.ssContainer}>
           {app.ss[lang].map(imgUrl => (
@@ -45,7 +48,7 @@ class Projects extends Component {
     const { button, buttonSelected } = styles
     const items = [ALL, IOS, ANDROID, HYBRID, WEB]
     return (
-      <div style={styles.buttonContainer}>
+      <div>
         {items.map(item => (
           <Button
             title={item}
@@ -91,12 +94,14 @@ const data = {
         logo: images.flashcard.icon,
         title: apps.flashCardTitle,
         subtitle: apps.flashCardDesc,
+        url: apps.flashCardUrl, 
         ss: images.flashcard.ss
       },
       {
         logo: images.stickyMemo.icon,
         title: apps.stickyMemoTitle,
         subtitle: apps.stickyMemoDesc,
+        url: apps.stickyMemoUrl,
         ss: images.stickyMemo.ss
       },
     ]
@@ -108,6 +113,7 @@ const data = {
         logo: images.greattaractive.icon,
         title: apps.greattaractiveTitle,
         subtitle: apps.greattaractiveDesc,
+        url: apps.greattaractiveUrl,
         ss: images.greattaractive.ss
       },
     ]
@@ -119,6 +125,7 @@ const data = {
         logo: images.iosClassForBeginners.icon,
         title: apps.iosClassTitle,
         subtitle: apps.iosClassDesc,
+        url: apps.iosClassUrl,
         ss: images.iosClassForBeginners.ss
       },
     ]
@@ -130,6 +137,7 @@ const data = {
         logo: images.comingSoon.icon,
         title: apps.tourismTitle,
         subtitle: apps.tourismDesc,
+        url: apps.tourismUrl,
         ss: images.comingSoon.ss
       },
     ]
@@ -178,14 +186,6 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
-  },
-  buttonContainer: {
-    // width: '100%',
-    // display: 'flex',
-    // flexDirection: 'row',
-    // justifyContent: 'space-between',
-    // alignItems: 'center',
-    // padding: '0 60px',
   },
   title: {
     fontSize: '2em',

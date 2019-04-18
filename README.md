@@ -1,18 +1,18 @@
 # portfolio-v2
 
-## Setup
+## Demo
 
-* FE: `yarn install` under ./
-* BE: `cd functions && yarn install && yarn build` under ./
+https://watarumaeda.com/
 
 ## Run (local)
 
-`firebase serve` under ./ 
+* FE+BE: `yarn serve`
+* FE: `yarn start` or `yarn serve:hosting`
+* BE: `yarn serve:functions`
 
-* Functions: `firebase serve --only functions` 
-* Hosting: `firebase serve --only hosting` 
+## Deploy (to Firebase)
 
-## Deploy
-
-  `firebase deploy`
+* FE+BE: `yarn deploy`
+* FE: `yarn deploy:hosting`
+* BE: `yarn deploy:functions`
 

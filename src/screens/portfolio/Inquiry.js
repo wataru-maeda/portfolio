@@ -1,15 +1,16 @@
 import React, { Component } from 'react'
 import firebase from 'firebase'
-import axios from 'axios'
 import Radium from 'radium'
 import Input from '../../components/Input'
 import Button from '../../components/Button'
+import Spinner from '../../components/Spinner'
 import { showAlert } from '../../components/Alert'
 import { inquiry } from '../../localization/pf'
 import { vali } from '../../utils/validation'
 import { FIREBASE_CONFIG } from '../../utils/keys'
 
 const initialState = {
+  isSending: false,
   name: '',
   email: '',
   phone: '',
@@ -58,33 +59,27 @@ class Inquiry extends Component {
     this.setState({ errors })
     if (isError) return
     
-    // send email
+    // start sending email
+    this.setState({ isSending: true })
+
     const { lang } = this.props
     const { name, email, phone, message } = this.state
-
     const sendMail = firebase.functions().httpsCallable('sendMail')
     if (sendMail) sendMail({ name, email, phone, message, lang }).then(res => {
       const { data: { success, message } } = res
       success
         ? this.showSuccess()
         : this.showError(message)
+        this.setState({ isSending: false })
     }).catch(e => {
       this.showError(e.message)
+      this.setState({ isSending: false })
     })
-
-    // axios.get('https://us-central1-portfolio-8316b.cloudfunctions.net/sendMail', { name, email, phone, message, lang }).then(res => {
-    //   const { data: { success, message } } = res
-    //   success
-    //     ? this.showSuccess()
-    //     : this.showError(message)
-    // }).catch(e => {
-    //   this.showError(e.message)
-    // })
   }
 
   render() {
     const { id, lang } = this.props
-    const { name, email, phone, message, errors } = this.state
+    const { isSending, name, email, phone, message, errors } = this.state
     return (
       <div className="bg-inquiry" style={styles.container} id={id}>
         <h1 style={styles.title}>GET IN TOUCH</h1>
@@ -130,11 +125,14 @@ class Inquiry extends Component {
           </div>
         </div>
         <Button
-          title={inquiry.submit[lang]}
+          title={isSending ? null : inquiry.submit[lang]}
+          disabled={isSending}
           className="btn-primary"
           style={styles.submitButton}
           onClick={this.onSubmit}
-        />
+        >
+          { isSending && <Spinner /> }
+        </Button>
       </div>
     )
   }

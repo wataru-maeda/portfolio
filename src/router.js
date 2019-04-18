@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import firebase from 'firebase'
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
 import Portfolio from './screens/portfolio'
 import { switchLanguage } from './redux/actions/LangActions'

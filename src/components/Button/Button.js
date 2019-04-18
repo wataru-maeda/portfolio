@@ -2,6 +2,7 @@ import React from 'react'
 
 export default ({
   title,
+  disabled = false,
   style = {},
   className = '',
   onClick,
@@ -12,8 +13,9 @@ export default ({
       className={`btn ${className}`}
       style={{ height: 60, ...style }}
       onClick={onClick}
+      disabled={disabled}
     >
-      {title}
+      {title && title}
       {children}
     </button>
   )

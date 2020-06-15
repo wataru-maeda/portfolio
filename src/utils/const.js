@@ -1,17 +1,7 @@
-
 const path = {
-  login: '/login',
-  signup: '/signup',
-  profile: '/profile',
-  resetPassword: '/reset-password',
-  confirmEmail: '/confirm-email',
-  home: '/home',
+  portfolio: '/portfolio',
 }
 
-const message = {
-}
+const message = {}
 
-export {
-  path,
-  message,
-}
+export { path, message }

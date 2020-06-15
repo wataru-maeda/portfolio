@@ -1,20 +1,15 @@
 import React, { useEffect } from 'react'
 import Loadable from 'react-loadable'
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
-import Connector from 'utils/connector'
 import { colors } from 'styles'
+import { path } from 'utils/const'
 
-const Auth = Loadable({
-  loader: () => import('./scenes/auth'),
+const Portfolio = Loadable({
+  loader: () => import('./scenes/portfolio'),
   loading: () => <div />,
 })
 
-const Home = Loadable({
-  loader: () => import('./scenes/home'),
-  loading: () => <div />,
-})
-
-const Router = ({ checked, loggedIn }) => {
+const Router = () => {
   // update css variables
   useEffect(() => {
     Object.keys(colors).forEach(key => {
@@ -24,30 +19,14 @@ const Router = ({ checked, loggedIn }) => {
     })
   }, [])
 
-  if (!checked) return <aside>Loading...</aside>
   return (
     <BrowserRouter>
-      {loggedIn ? (
-        <Switch>
-          <Route path="/" name="Home" component={Home} />
-          <Redirect to="/" />
-        </Switch>
-      ) : (
-        <Switch>
-          <Route path="/" component={Auth} />
-          <Redirect to="/" />
-        </Switch>
-      )}
+      <Switch>
+        <Route path={path.portfolio} component={Portfolio} />
+        <Redirect to={path.portfolio} />
+      </Switch>
     </BrowserRouter>
   )
 }
 
-export default props => (
-  <Connector>
-    {({
-      state: {
-        app: { loggedIn, checked },
-      },
-    }) => <Router checked={checked} loggedIn={loggedIn} {...props} />}
-  </Connector>
-)
+export default Router

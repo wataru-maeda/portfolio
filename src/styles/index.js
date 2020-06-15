@@ -1,5 +1,6 @@
 import styler from './styler'
 import rem from './rem'
-import { colors, images, fonts } from './theme'
+import colors from './colors'
+import images from './images'
 
-export { styler, rem, fonts, images, colors }
+export { styler, rem, images, colors }

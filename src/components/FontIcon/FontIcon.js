@@ -3,25 +3,29 @@ import PropTypes from 'prop-types'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import {
-  faPaperPlane,
-  faTimesCircle,
-  faTag,
-  faAngleDoubleDown,
-  faHeart,
-  faChevronRight,
-  faEnvelopeOpenText,
+  faBars,
+  faLayerGroup,
+  faMobileAlt,
+  faBookReader,
 } from '@fortawesome/free-solid-svg-icons'
+import {
+  faLinkedinIn,
+  faGithub,
+  faFacebookF,
+  faTwitter,
+} from '@fortawesome/free-brands-svg-icons'
 
 // TODO: add icons here...
 export const loadFontIcons = () =>
   library.add(
-    faPaperPlane,
-    faTimesCircle,
-    faTag,
-    faAngleDoubleDown,
-    faHeart,
-    faChevronRight,
-    faEnvelopeOpenText,
+    faBars,
+    faLayerGroup,
+    faMobileAlt,
+    faBookReader,
+    faLinkedinIn,
+    faGithub,
+    faFacebookF,
+    faTwitter,
   )
 
 const FontIcon = ({ icon, className, style }) => (

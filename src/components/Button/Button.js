@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import FontIcon from 'components/FontIcon'
 import { styler } from 'styles'
 import Spinner from 'components/Spinner'
 import './button.css'
@@ -19,9 +20,13 @@ const styles = styler({
 
 const Button = ({
   label,
+  icon,
   className,
+  spinnerClassName,
+  iconClassName,
   style,
   spinnerStyle,
+  iconStyle,
   onClick,
   children,
   disabled,
@@ -35,9 +40,12 @@ const Button = ({
     disabled={disabled || isLoading}
   >
     {isLoading ? (
-      <Spinner iconStyle={spinnerStyle} />
+      <Spinner className={spinnerClassName} iconStyle={spinnerStyle} />
     ) : (
       <>
+        {icon && (
+          <FontIcon icon={icon} className={iconClassName} style={iconStyle} />
+        )}
         {label}
         {children}
       </>
@@ -47,9 +55,13 @@ const Button = ({
 
 Button.propTypes = {
   label: PropTypes.string,
+  icon: PropTypes.string,
   className: PropTypes.string,
-  style: PropTypes.objectOf(PropTypes.object),
-  spinnerStyle: PropTypes.objectOf(PropTypes.object),
+  spinnerClassName: PropTypes.string,
+  iconClassName: PropTypes.string,
+  style: PropTypes.shape({}),
+  spinnerStyle: PropTypes.shape({}),
+  iconStyle: PropTypes.shape({}),
   children: PropTypes.node,
   onClick: PropTypes.func,
   disabled: PropTypes.bool,
@@ -58,9 +70,13 @@ Button.propTypes = {
 
 Button.defaultProps = {
   label: '',
+  icon: null,
   className: '',
+  spinnerClassName: '',
+  iconClassName: '',
   style: {},
   spinnerStyle: {},
+  iconStyle: {},
   onClick: () => {},
   children: null,
   disabled: false,

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
 import Button from 'components/Button'
-import { styler, colors } from 'styles'
+import { styler, colors, rem } from 'styles'
 
 const styles = styler({
   container: {
@@ -11,8 +11,10 @@ const styles = styler({
     marginBottom: 10,
   },
   label: {
+    display: 'flex',
+    alignItems: 'center',
     fontSize: 14,
-    color: colors.gray,
+    fontWeight: 300,
     marginBottom: 5,
   },
   button: {
@@ -25,6 +27,7 @@ const styles = styler({
   },
   input: {
     fontSize: 16,
+    boxShadow: '0 2px 4px 0 rgba(0, 0, 0, 0.1) !important',
     '&::placeholder': {
       textOverflow: 'ellipsis !important',
       color: colors.lightGray,
@@ -50,19 +53,33 @@ const Input = ({
   maxLength,
   className,
   style,
+  inputClassName,
+  inputStyle,
   error,
   disabled,
+  mandatory,
 }) => {
   const [currentType, setCurrentType] = useState('text')
   const isPw = type === 'password'
   const isPwNow = currentType === 'password'
 
-  const inputStyle =
-    error.length > 0 ? 'form-control is-invalid' : 'form-control'
+  const titleLabel = !mandatory ? (
+    <aside className={styles.label}>{label}</aside>
+  ) : (
+    <aside className={styles.label}>
+      {label}
+      <aside style={rem({ color: colors.blue, marginLeft: 3 })}>*</aside>
+    </aside>
+  )
+
+  const iptStyle =
+    error.length > 0
+      ? `form-control is-invalid ${inputClassName}`
+      : `form-control ${inputClassName}`
 
   return (
-    <div className={`form-group ${className}`}>
-      {label && <aside className={styles.label}>{label}</aside>}
+    <div className={`form-group ${className}`} style={style}>
+      {label && titleLabel}
       <div className={styles.container}>
         <input
           value={value}
@@ -72,8 +89,8 @@ const Input = ({
           onChange={onChange}
           placeholder={placeholder}
           maxLength={maxLength}
-          className={`${inputStyle} ${styles.input}`}
-          style={{ ...style, backgroundImage: isPw && 'none' }}
+          className={`${styles.input} ${iptStyle}`}
+          style={{ ...inputStyle, backgroundImage: isPw && 'none' }}
           disabled={disabled}
         />
         <div className="invalid-feedback">{error}</div>
@@ -107,8 +124,11 @@ Input.propTypes = {
   maxLength: PropTypes.string,
   className: PropTypes.string,
   style: PropTypes.shape({}),
+  inputClassName: PropTypes.string,
+  inputStyle: PropTypes.shape({}),
   error: PropTypes.string,
   disabled: PropTypes.bool,
+  mandatory: PropTypes.bool,
 }
 
 Input.defaultProps = {
@@ -122,8 +142,11 @@ Input.defaultProps = {
   maxLength: '50',
   className: '',
   style: {},
+  inputClassName: '',
+  inputStyle: {},
   error: '',
   disabled: false,
+  mandatory: false,
 }
 
 export default Input

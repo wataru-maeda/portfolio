@@ -1,5 +1,6 @@
 import React from 'react'
 import FontIcon from 'components/FontIcon'
+import InView from 'components/InView'
 import { styler, colors } from 'styles'
 
 const styles = styler({
@@ -43,7 +44,7 @@ const styles = styler({
     textAlign: 'center',
   },
   itemDesc: {
-    fontSize: 16,
+    fontSize: 14,
     fontWeight: 300,
     textAlign: 'center',
   },
@@ -70,26 +71,47 @@ const items = [
   },
 ]
 
-const Passion = () => {
+const transition = {
+  duration: 1,
+  ease: [0.43, 0.13, 0.23, 0.96],
+}
+
+const getVariants = ({ delay }) => ({
+  hidden: { y: 80, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      delay,
+      ...transition,
+    },
+  },
+})
+
+const Passions = () => {
   return (
     <div className={styles.root}>
       <h2 className={styles.title}>Passions</h2>
       <aside className={styles.subtitle}>Build Great Service in Team</aside>
       <div className={styles.container}>
-        {items.map(x => (
-          <div className={styles.itemContainer}>
+        {items.map((x, i) => (
+          <InView
+            key={i.toString()}
+            className={styles.itemContainer}
+            variants={getVariants({ delay: 0.7 * i })}
+          >
             <FontIcon icon={x.icon} className={styles.itemIcon} />
             <h3 className={styles.itemTitle}>{x.title}</h3>
             <aside className={styles.itemDesc}>{x.desc}</aside>
-          </div>
+          </InView>
         ))}
       </div>
     </div>
   )
 }
 
-Passion.propTypes = {}
+Passions.propTypes = {}
 
-Passion.defaultProps = {}
+Passions.defaultProps = {}
 
-export default Passion
+export default Passions

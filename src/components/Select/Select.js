@@ -2,7 +2,7 @@ import React from 'react'
 import Select from 'react-select'
 import Creatable from 'react-select/creatable'
 import PropTypes from 'prop-types'
-import { styler, colors } from 'styles'
+import { styler, colors, rem } from 'styles'
 import './select.css'
 
 const styles = styler({
@@ -10,14 +10,14 @@ const styles = styler({
     flex: 1,
     display: 'flex',
     flexDirection: 'column',
-    marginBottom: 40,
+    marginBottom: 30,
   },
   label: {
-    fontSize: 18,
     display: 'flex',
-    height: 'auto',
+    alignItems: 'center',
+    fontSize: 14,
+    fontWeight: 300,
     marginBottom: 10,
-    color: colors.purple,
   },
   error: {
     marginTop: 4,
@@ -32,7 +32,7 @@ const styles = styler({
 
 const Selector = ({
   label,
-  values,
+  value,
   options,
   placeholder,
   onChange,
@@ -40,138 +40,131 @@ const Selector = ({
   disabled,
   error,
   mandatory,
-  height,
   isMulti,
   isCreatable,
+  className,
 }) => {
   const titleLabel = !mandatory ? (
-    <div className={styles.label}>{label}</div>
+    <aside className={styles.label}>{label}</aside>
   ) : (
-    <div className={styles.label}>
+    <aside className={styles.label}>
       {label}
-      <div className={styles.dot}>*</div>
-    </div>
+      <aside style={rem({ color: colors.blue, marginLeft: 3 })}>*</aside>
+    </aside>
   )
 
-  const params = {
+  const props = {
     placeholder,
-    value: values.map(x => ({ value: x, label: x })),
-    options: options.map(x => ({ value: x, label: x })),
-    onChange: items => onChange(items ? items.map(x => x.value) : []),
+    value,
+    options,
+    onChange,
     isMulti,
-    className: styles.input,
+    className,
     styles: {
-      clearIndicator: clearStyles => ({
-        ...clearStyles,
-        width: 30,
-        height: 'auto',
-      }),
-      indicatorsContainer: indicatorStyles => ({
-        ...indicatorStyles,
-      }),
-      control: (controlStyles, { isDisabled }) => ({
-        ...controlStyles,
-        '&:hover': { borderColor: colors.darkGray },
-        border: `1px solid ${error ? 'red' : colors.lightLightGray}`,
-        boxShadow: 'none',
-        backgroundColor: isDisabled ? 'darkGray' : 'white',
-        minHeight: height,
-        fontSize: 18,
-        padding: '0 15px',
-      }),
-      option: (optionStyles, { isFocused }) => ({
-        ...optionStyles,
-        color: isFocused ? 'white' : colors.blackPurple,
-        backgroundColor: isFocused && colors.lightPurple,
-        fontSize: 20,
-        padding: 10,
-        transition: 0.3,
-        '&:active': {
-          backgroundColor: colors.purple,
-        },
-      }),
-      placeholder: () => ({
-        color: colors.lightGrayPurple,
-        opacity: 0.4,
-        fontSize: 18,
-      }),
-      multiValue: multiValueStyles => ({
-        ...multiValueStyles,
-        backgroundColor: 'white',
-        border: `1px solid ${colors.lightPurple}`,
-        borderRadius: 3,
-        margin: 5,
-      }),
-      multiValueLabel: multiValueLabelStyles => ({
-        ...multiValueLabelStyles,
-        color: colors.darkGray,
-        margin: '0 6px',
-        fontSize: 16,
-      }),
-      multiValueove: multiValueoveStyles => ({
-        ...multiValueoveStyles,
-        color: colors.blackPurple,
-        borderLeft: `1px solid ${colors.lightGray}`,
-        ':hover': {
-          backgroundColor: colors.lightPurple,
-          color: 'white',
-        },
-      }),
-      indicatorSeparator: indicatorStyles => ({
-        ...indicatorStyles,
-        color: colors.lightLightGray,
-        margin: '15 16px 15 0',
-      }),
-      dropdownIndicator: dropdownStyles => ({
-        ...dropdownStyles,
-        width: 30,
-        height: 'auto',
-      }),
+      clearIndicator: x =>
+        rem({
+          ...x,
+          height: 'auto',
+        }),
+      indicatorsContainer: x =>
+        rem({
+          ...x,
+          marginRight: 10,
+        }),
+      control: (x, { isDisabled }) =>
+        rem({
+          ...x,
+          minHeight: 50,
+          backgroundColor: isDisabled ? colors.lightGray : 'white',
+          '&:focus': { borderColor: `${colors.darkGray} !important` },
+          '&:hover': { borderColor: `${colors.darkGray} !important` },
+          boxShadow: '0 2px 4px 0 rgba(0, 0, 0, 0.1)',
+          border: `solid 1px ${colors.gray}`,
+          borderRadius: 4,
+        }),
+      option: (x, { isFocused }) =>
+        rem({
+          ...x,
+          color: colors.black,
+          backgroundColor: isFocused && colors.lightYellow,
+          padding: 10,
+          fontSize: 14,
+        }),
+      placeholder: x =>
+        rem({
+          ...x,
+          color: colors.lightGray,
+          fontSize: 14,
+        }),
+      valueContainer: x =>
+        rem({
+          ...x,
+          marginLeft: 10,
+        }),
+      multiValue: x =>
+        rem({
+          ...x,
+          marginLeft: 10,
+        }),
+      multiValueLabel: x =>
+        rem({
+          ...x,
+        }),
+      multiValueove: x =>
+        rem({
+          ...x,
+        }),
+      indicatorSeparator: x =>
+        rem({
+          ...x,
+          margin: 10,
+        }),
+      dropdownIndicator: x =>
+        rem({
+          ...x,
+        }),
     },
-    theme: t => ({
-      ...t,
-      borderRadius: 2,
-      colors: {
-        ...t.colors,
-        primary25: 'lightGray',
-        primary: colors.lightPurple,
-      },
-      spacing: {
-        baseUnit: 6,
-        controlHeight: 60,
-        menuGutter: 5,
-      },
-    }),
+    theme: t =>
+      rem({
+        ...t,
+        borderRadius: 4,
+        colors: {
+          ...t.colors,
+        },
+        spacing: {
+          ...t.spacing,
+        },
+      }),
     isDisabled: disabled,
   }
 
   return (
-    <div className={{ ...styles.root, ...style }}>
+    <div className={styles.root} style={style}>
       {label && titleLabel}
-      {isCreatable ? <Creatable {...params} /> : <Select {...params} />}
+      {isCreatable ? <Creatable {...props} /> : <Select {...props} />}
       {error && <span className={styles.error}>{error}</span>}
     </div>
   )
 }
 
 Selector.propTypes = {
-  label: PropTypes.oneOfType([null, PropTypes.string]),
-  values: PropTypes.InstanceOf(Array),
-  options: PropTypes.InstanceOf(Array),
+  label: PropTypes.string,
+  value: PropTypes.shape([]),
+  options: PropTypes.shape([]),
   placeholder: PropTypes.string,
-  error: PropTypes.oneOfType([null, PropTypes.string]),
+  error: PropTypes.string,
   onChange: PropTypes.func,
-  style: PropTypes.objectOf(PropTypes.object),
+  style: PropTypes.shape({}),
   disabled: PropTypes.bool,
   mandatory: PropTypes.bool,
-  height: PropTypes.number,
   isMulti: PropTypes.bool,
   isCreatable: PropTypes.bool,
+  className: PropTypes.string,
 }
 
 Selector.defaultProps = {
   label: null,
-  values: [],
+  value: [],
   options: [],
   placeholder: null,
   error: null,
@@ -179,9 +172,9 @@ Selector.defaultProps = {
   style: {},
   disabled: false,
   mandatory: false,
-  height: 60,
   isMulti: false,
   isCreatable: false,
+  className: '',
 }
 
 export default Selector

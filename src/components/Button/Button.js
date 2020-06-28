@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import FontIcon from 'components/FontIcon'
 import { styler } from 'styles'
 import Spinner from 'components/Spinner'
+import { motion } from 'framer-motion'
 import './button.css'
 
 const styles = styler({
@@ -32,12 +33,14 @@ const Button = ({
   disabled,
   isLoading,
 }) => (
-  <button
+  <motion.button
     type="button"
     className={`${styles.root} ${className}`}
     style={style}
     onClick={onClick}
     disabled={disabled || isLoading}
+    whileHover={{ scale: 1.1 }}
+    whileTap={{ scale: 0.9 }}
   >
     {isLoading ? (
       <Spinner className={spinnerClassName} iconStyle={spinnerStyle} />
@@ -50,7 +53,7 @@ const Button = ({
         {children}
       </>
     )}
-  </button>
+  </motion.button>
 )
 
 Button.propTypes = {

@@ -1,5 +1,6 @@
 import React from 'react'
 import { PropTypes } from 'prop-types'
+import InView from 'components/InView'
 import { styler, colors } from 'styles'
 import { Radar } from 'components/Chart'
 
@@ -103,29 +104,46 @@ const data = [
   },
 ]
 
-const Skill = () => {
+const transition = {
+  duration: 1,
+  ease: [0.43, 0.13, 0.23, 0.96],
+}
+
+const getVariants = ({ delay }) => ({
+  hidden: { opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      delay,
+      ...transition,
+    },
+  },
+})
+
+const Skills = () => {
   return (
     <div className={styles.root}>
       <h2 className={styles.title}>Skills</h2>
       <aside className={styles.subtitle}>Able To Work All Stage</aside>
       <div className={styles.skillContainer}>
         {data.map((x, i) => (
-          <div key={i.toString()}>
+          <InView key={i.toString()} variants={getVariants({ delay: 0.3 * i })}>
             <h4 className={styles.chartTitle}>{x.title}</h4>
             <Radar data={x} className={styles.radar} />
-          </div>
+          </InView>
         ))}
       </div>
     </div>
   )
 }
 
-Skill.propTypes = {
+Skills.propTypes = {
   style: PropTypes.shape({}),
 }
 
-Skill.defaultProps = {
+Skills.defaultProps = {
   style: {},
 }
 
-export default Skill
+export default Skills

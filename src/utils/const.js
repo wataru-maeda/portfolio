@@ -1,5 +1,5 @@
 const path = {
-  portfolio: '/portfolio',
+  portfolio: '/',
 }
 
 const message = {}

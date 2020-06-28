@@ -1,5 +1,6 @@
 import React from 'react'
 import { PropTypes } from 'prop-types'
+import { motion } from 'framer-motion'
 import { styler, images } from 'styles'
 
 const styles = styler({
@@ -35,13 +36,55 @@ const styles = styler({
   },
 })
 
+const transition = {
+  duration: 1,
+  ease: [0.43, 0.13, 0.23, 0.96],
+}
+
+const imageVariants = {
+  exit: { x: 30, opacity: 0.3, transition },
+  enter: {
+    x: '0%',
+    opacity: 1,
+    transition,
+  },
+}
+
+const titleVariants = {
+  exit: { y: 100, opacity: 0, transition },
+  enter: { y: 0, opacity: 1, transition: { delay: 2, ...transition } },
+}
+
+const nameVariants = {
+  exit: { y: '50%', opacity: 0, transition },
+  enter: {
+    y: '0%',
+    opacity: 1,
+    transition: { delay: 1, ...transition },
+  },
+}
+
 const Hero = () => (
   <div className={styles.root}>
-    <img src={images.hero} className={styles.hero} alt="hero" />
-    <div className={styles.container}>
-      <aside className={styles.subtitle}>Full-stack Developer</aside>
-      <h1 className={styles.title}>Wataru Maeda</h1>
-    </div>
+    <motion.div
+      className={styles.container}
+      initial="exit"
+      animate="enter"
+      exit="exit"
+    >
+      <motion.img
+        src={images.hero}
+        className={styles.hero}
+        variants={imageVariants}
+        alt="hero"
+      />
+      <motion.p className={styles.subtitle} variants={titleVariants}>
+        Full-stack Developer
+      </motion.p>
+      <motion.h1 className={styles.title} variants={nameVariants}>
+        Wataru Maeda
+      </motion.h1>
+    </motion.div>
   </div>
 )
 

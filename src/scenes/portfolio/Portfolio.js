@@ -3,9 +3,12 @@ import { PropTypes } from 'prop-types'
 import { styler } from 'styles'
 
 import Hero from './Hero'
-import Passion from './Passion'
+import Passions from './Passions'
 import Profile from './Profile'
-import Skill from './Skill'
+import Skills from './Skills'
+import Released from './Released'
+import Inquiry from './Inquiry'
+import Footer from './Footer'
 
 const styles = styler({
   root: {
@@ -17,12 +20,16 @@ const styles = styler({
 })
 
 const Portfolio = () => {
+  console.log('[##] window.navigator.language', window.navigator.language)
   return (
     <div className={styles.root}>
       <Hero />
-      <Passion />
+      <Passions />
       <Profile />
-      <Skill />
+      <Skills />
+      <Released />
+      <Inquiry />
+      <Footer />
     </div>
   )
 }

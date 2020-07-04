@@ -170,6 +170,7 @@ const items = [
         logo: images.flash_card_logo,
         name: 'released.flash_card.name',
         details: 'released.flash_card.description',
+        url: 'released.flash_card.url',
         screenShots: [
           images.flash_card_ss_en_1,
           images.flash_card_ss_en_2,
@@ -182,6 +183,7 @@ const items = [
         logo: images.sticky_memo_logo,
         name: 'released.sticky_memo.name',
         details: 'released.sticky_memo.description',
+        url: 'released.sticky_memo.url',
         screenShots: [
           images.sticky_memo_ss_en_1,
           images.sticky_memo_ss_en_2,
@@ -198,6 +200,7 @@ const items = [
         logo: images.greattaractive_logo,
         name: 'released.greattaractive.name',
         details: 'released.greattaractive.description',
+        url: 'released.greattaractive.url',
         screenShots: [
           images.greattaractive_ss_en_1,
           images.greattaractive_ss_en_2,
@@ -213,9 +216,23 @@ const items = [
     type: 'web',
     apps: [
       {
+        logo: images.copypet_logo,
+        name: 'released.copypet.name',
+        details: 'released.copypet.description',
+        url: 'released.copypet.url',
+        screenShots: [
+          images.copypet_ss_jp_1,
+          images.copypet_ss_jp_2,
+          images.copypet_ss_jp_3,
+          images.copypet_ss_jp_4,
+          images.copypet_ss_jp_5,
+        ],
+      },
+      {
         logo: images.ios_class_for_beginners_logo,
         name: 'released.ios_class_for_beginner.name',
         details: 'released.ios_class_for_beginner.description',
+        url: 'released.ios_class_for_beginner.url',
         screenShots: [
           images.ios_class_for_beginners_ss_en_1,
           images.ios_class_for_beginners_ss_en_2,
@@ -232,6 +249,7 @@ const items = [
         logo: images.coming_soon,
         name: 'released.tourism_challenge.name',
         details: 'released.tourism_challenge.description',
+        url: 'released.tourism_challenge.url',
         screenShots: [
           images.tourism_challenge_ss_jp_1,
           images.tourism_challenge_ss_jp_2,
@@ -259,7 +277,7 @@ const getVariants = ({ x, delay }) => ({
   },
 })
 
-const App = ({ logo, name, details, screenShots }) => {
+const App = ({ logo, name, details, url, screenShots }) => {
   const { t } = useTranslation()
   return (
     <div className={styles.app}>
@@ -271,7 +289,11 @@ const App = ({ logo, name, details, screenShots }) => {
             <p className={styles.appDesc}>{t(details)}</p>
           </div>
         </div>
-        <Button label="More" className={styles.appMoreButton} />
+        <Button
+          label="More"
+          className={styles.appMoreButton}
+          onClick={() => window.open(t(url), '_blank')}
+        />
       </div>
       <div className={styles.appScreenShotsContainer}>
         {screenShots.map(x => (

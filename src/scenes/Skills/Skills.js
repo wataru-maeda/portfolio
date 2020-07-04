@@ -1,5 +1,6 @@
 import React from 'react'
 import { PropTypes } from 'prop-types'
+import { Element } from 'react-scroll'
 import { useTranslation } from 'react-i18next'
 import InView from 'components/InView'
 import { styler, colors, breakpoints } from 'styles'
@@ -134,18 +135,23 @@ const getVariants = ({ delay }) => ({
 const Skills = () => {
   const { t } = useTranslation()
   return (
-    <div className={styles.root}>
-      <h2 className={styles.title}>{t('skills.title')}</h2>
-      <aside className={styles.subtitle}>{t('skills.subtitle')}</aside>
-      <div className={styles.skillContainer}>
-        {data.map((x, i) => (
-          <InView key={i.toString()} variants={getVariants({ delay: 0.3 * i })}>
-            <h4 className={styles.chartTitle}>{t(x.title)}</h4>
-            <Radar data={x} className={styles.radar} />
-          </InView>
-        ))}
+    <Element name="skills">
+      <div className={styles.root}>
+        <h2 className={styles.title}>{t('skills.title')}</h2>
+        <aside className={styles.subtitle}>{t('skills.subtitle')}</aside>
+        <div className={styles.skillContainer}>
+          {data.map((x, i) => (
+            <InView
+              key={i.toString()}
+              variants={getVariants({ delay: 0.3 * i })}
+            >
+              <h4 className={styles.chartTitle}>{t(x.title)}</h4>
+              <Radar data={x} className={styles.radar} />
+            </InView>
+          ))}
+        </div>
       </div>
-    </div>
+    </Element>
   )
 }
 

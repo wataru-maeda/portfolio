@@ -1,156 +1,58 @@
+# Portfolio
 
-<img src='https://github.com/WataruMaeda/react-firebase-boilerplate/blob/master/readme.assets/banner.svg' width='400'>
+- [Live Preview](https://watarumaeda.com/)
 
-+ [Live Preview](https://react-firebase-boilerpla-414c0.web.app/)
+## Design
 
-<img src='https://github.com/WataruMaeda/react-firebase-boilerplate/blob/master/readme.assets/ss4.png' width='100%'> <img src='https://github.com/WataruMaeda/react-firebase-boilerplate/blob/master/readme.assets/ss1.png' width='33%'> <img src='https://github.com/WataruMaeda/react-firebase-boilerplate/blob/master/readme.assets/ss2.png' width='33%'> <img src='https://github.com/WataruMaeda/react-firebase-boilerplate/blob/master/readme.assets/ss3.png' width='33%'>
+- [AdobeXD](https://adobeid-na1.services.adobe.com/ims/jump/eyJraWQiOiJLMjAxNiIsImFsZyI6IlJTMjU2In0.eyJqdGkiOiIxNTkzODk5NzA2NjA5X2RjNTIyOTk3LTc2YTctNDg3ZC1hOGI5LWRiNDcwYzFlNGI2NV91ZTEiLCJjaWQiOiJDb21ldFdlYjEiLCJ1aWQiOiJCRURGNURCQzVCMUVCQzUwMEE0OTVFQUZAQWRvYmVJRCIsInJ1IjoiaHR0cHM6Ly94ZC5hZG9iZS5jb20vdmlldy80MDFiZTljMS1jNDM2LTQwNTAtOWMwYi1lYjIyNGJjMzBlNTAtMTU0OC8iLCJydCI6InRva2VuIiwiY2UiOiJBYUZqZGtmUW4xTU9Hc3RCbzhlemV0Y2F5Q1hDX1hVbXF4cDVXS1czbXF1bmFVVTRra3dfMmNySmcxMGVjaHVVZjl5aEZ1RjcwbTZLZTEyRGRFLTZiZmF5OGsxcjBxXzdqeUxxUXFlVHZxeC1pUSIsImV4cCI6MTU5MzkwMDYwNjYwOSwicmYiOiJVU0wyWElIUFZMUDVKWDZXSzRBM1lPUUFTVT09PT09PSIsImlzcyI6Imh0dHBzOi8vaW1zLW5hMS5hZG9iZWxvZ2luLmNvbSJ9.oviWdIJyR1QwrKWtno7M2b9-y5EAHhOYy0-JXSjyDoGxedK1uLQfODjSedEcDWzW76kR7bYuetJe7u4BSBJH0SEV-qlZmfOta6Jg83i4qvJW5ljFhw2slqgUEg2eSC2jUlb4oXRvTrFKzuaUgEkGsEFmu6Nhtxk8teS9UowiOJ8uPNDIyAlvyEyz5oxEUlvl3VUWZ5qk1n-P6FdjDJ3cW2j0pvDszOycMa_qLPxAW7L9PRuji-a1HXmHf2mogL402lRALaxnw8XhFzjCURxqjN-1w4pWj1AeRskW6SgcKXSp9e8rdLb1d8oMVXdevZ_E3E-NO8Yap0hpzH1FOePD4w)
 
-## About
+## Dev Environment
 
-We spend a large amount of time to setup a project; changing file structure, installing libraries, create reusable components and so on. The purpose of using the project is to minimize the redundant effort to setup a project from scratch. In the boilerplate, it contains only commonly-used libraries and the all setup done for you. 
+- [eslint](https://github.com/eslint/eslint)
+- [prettier](https://github.com/prettier/prettier)
+- [husky](https://github.com/typicode/husky)
+- [jest](https://github.com/facebook/jest)
 
-This project is made based on [react-boilerplate](https://github.com/WataruMaeda/react-boilerplate)
+## CI and Auto Deployment
 
-Firebase is a google platform to help us to build an app quickly without building infrastructure. It's easy to use and most of the setup is simple and straightforward. But we still need to go through several steps to using their service. In this boilerplate, this kind of setup done for you. Also, most of the web app needs authentication. This template provides you simple signup/login, reset password page as well as set profile page. These pages are created for you and these pages are working with firebase auth service so that you don't need to create by youself from scratch.
+- [GitHub Action for Firebase](https://github.com/marketplace/actions/github-action-for-firebase)
 
-In the demo, you can try it out the authentication function. Create your account with your email and password. After confirming your email address. Set a user name and profile image. Then you can go into the dashboard.
+## Libraries
 
+`Database/hosting/authentication`
 
-## How to Use
+- [firebase](https://firebase.google.com/)
 
-#### 1. Register your app
+`Style`
 
-+ Go to [firebase console](https://console.firebase.google.com/u/0/) and create a project
+- [bootstrap](https://react-bootstrap.github.io/)
+- [emotion](https://github.com/emotion-js/emotion)
+- [styled-components](https://github.com/styled-components/styled-components)
+- [react-responsive](https://github.com/contra/react-responsive)
 
-  <img src='https://github.com/WataruMaeda/react-firebase-boilerplate/blob/master/readme.assets/step1.png' width='50%'>
+`Assets`
 
-+ Select 「Web」
+- [fortawesome](https://github.com/FortAwesome/react-fontawesome)
 
-  <img src='https://github.com/WataruMaeda/react-firebase-boilerplate/blob/master/readme.assets/step2.png' width='50%'>
+`Animation`
 
-+ Setup Authentication
+- [framer-motion](https://github.com/framer/motion)
 
-  <img src='https://github.com/WataruMaeda/react-firebase-boilerplate/blob/master/readme.assets/step3.png' width='50%'>
+`UI Components`
 
-+ Setup Storage
+- [reactstrap](https://github.com/reactstrap/reactstrap)
+- [react-scroll](https://github.com/fisshy/react-scroll)
+- [react-select](https://github.com/JedWatson/react-select)
+- [react-spinners](https://github.com/davidhu2000/react-spinners)
 
-  <img src='https://github.com/WataruMaeda/react-firebase-boilerplate/blob/master/readme.assets/step4.png' width='50%'>
+`Store`
 
-+ Add profile.png under default directory
+- [redux](https://github.com/reduxjs/redux)
+- [redux-logger](https://github.com/LogRocket/redux-logger)
+- [redux-thunk](https://github.com/reduxjs/redux-thunk)
 
-  <img src='https://github.com/WataruMaeda/react-firebase-boilerplate/blob/master/readme.assets/step6.png' width='50%'>
+`Others`
 
-+ Copy keys
-
-  <img src='https://github.com/WataruMaeda/react-firebase-boilerplate/blob/master/readme.assets/step5.png' width='50%'>
-
-#### 2. Setup boilerplate
-
-+ Download the boilerplate from ***Download Zip*** button
-
-+ Go to [firebase.js](https://github.com/WataruMaeda/react-firebase-boilerplate/blob/master/src/utils/firebase.js#L6-L12) and replace keys.
-
-+ Install package using package manager tool
-
-```
-$ npm install
-- or -
-$ yarn install
-```
-
-+ Global install firebase tools (Skip if you done the step)
-
-```
-$  npm install -g firebase-tools
-```
-
-+ Login to your firebase account (Skip if you done the step)
-
-```
-$ firebase login
-```
-
-+ Setup firebase in the boilerplate
-
-```
-$ firebase init
-$
-$ ...
-
-? Which Firebase CLI features do you want to set up for this folder? Press Space to select features, then Enter to confirm your choices. 
- ◯ Database: Deploy Firebase Realtime Database Rules
- ◯ Firestore: Deploy rules and create indexes for Firestore
- ◯ Functions: Configure and deploy Cloud Functions
- ◉ Hosting: Configure and deploy Firebase Hosting sites
-❯◉ Storage: Deploy Cloud Storage security rules
-
-=== Project Setup
-
-? Please select an option: Use an existing project
-i  Using project {your-project-id} ({your-project-name})
-
-=== Hosting Setup 
-
-? What do you want to use as your public directory? build
-? Configure as a single-page app (rewrite all urls to /index.html)? No
-? File build/404.html already exists. Overwrite? No
-i  Skipping write of build/404.html
-? File build/index.html already exists. Overwrite? No
-i  Skipping write of build/index.html
-
-=== Storage Setup
-
-? What file should be used for Storage Rules? storage.rules
-
-i  Writing configuration info to firebase.json...
-i  Writing project information to .firebaserc...
-
-✔  Firebase initialization complete!
-
-```
-
-+ Update firease.json. Add headers and rewrites.
-
-```firease.json
-{
-  "hosting": {
-    "public": "build",
-    "headers": [
-      {"source": "/service-worker.js", "headers": [{"key": "Cache-Control", "value": "no-cache"}]}
-    ],
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
-    ],
-    "rewrites": [
-      {
-        "source": "**",
-        "destination": "/index.html"
-      }
-    ]
-  },
-  "storage": {
-    "rules": "storage.rules"
-  }
-}
-```
-
-#### 3. Test
-
-```
-$ yarn build && firebase serve
-- or -
-$ npm build && firebase serve
-```
-
-#### 4. Deploy
-
-```
-$ yarn build && firebase deploy
-- or -
-$ npm build && firebase deploy
-```
-
-## Licence
-This project is available under the MIT license. See the [LICENSE](https://github.com/WataruMaeda/react-native-boilerplate/blob/master/LICENSE) file for more info.
+- [moment](https://github.com/moment/moment)
+- [lodash](https://github.com/lodash/lodash)
+- [react-loadable](https://github.com/jamiebuilds/react-loadable)

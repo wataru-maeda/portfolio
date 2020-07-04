@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import { Element } from 'react-scroll'
 import Button from 'components/Button'
 import InView from 'components/InView'
 import { styler, colors, images, breakpoints } from 'styles'
@@ -308,31 +309,33 @@ const Released = () => {
   const { t } = useTranslation()
   const [type, setType] = useState('all')
   return (
-    <div className={styles.root}>
-      <h2 className={styles.title}>{t('released.title')}</h2>
-      <aside className={styles.subtitle}>{t('released.subtitle')}</aside>
-      <div className={styles.menu}>
-        {types.map(x => (
-          <Button
-            key={x.label}
-            label={t(x.label)}
-            className={styles.menuButton}
-            style={{
-              background: type === x.value ? 'black' : colors.lightGray,
-              color: type === x.value ? 'white' : 'black',
-            }}
-            onClick={() => setType(x.value)}
-          />
-        ))}
+    <Element name="released">
+      <div className={styles.root}>
+        <h2 className={styles.title}>{t('released.title')}</h2>
+        <aside className={styles.subtitle}>{t('released.subtitle')}</aside>
+        <div className={styles.menu}>
+          {types.map(x => (
+            <Button
+              key={x.label}
+              label={t(x.label)}
+              className={styles.menuButton}
+              style={{
+                background: type === x.value ? 'black' : colors.lightGray,
+                color: type === x.value ? 'white' : 'black',
+              }}
+              onClick={() => setType(x.value)}
+            />
+          ))}
+        </div>
+        <div className={styles.container}>
+          {items.map((x, i) =>
+            x.type === type || type === 'all' ? (
+              <Section key={x.name} {...x} index={i} />
+            ) : null,
+          )}
+        </div>
       </div>
-      <div className={styles.container}>
-        {items.map((x, i) =>
-          x.type === type || type === 'all' ? (
-            <Section key={x.name} {...x} index={i} />
-          ) : null,
-        )}
-      </div>
-    </div>
+    </Element>
   )
 }
 

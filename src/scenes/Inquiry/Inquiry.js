@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { PropTypes } from 'prop-types'
 import { useTranslation } from 'react-i18next'
+import { Element } from 'react-scroll'
 import i18next from 'i18next'
 import emailjs from 'emailjs-com'
 import swal from 'sweetalert2'
@@ -121,59 +122,61 @@ const Inquiry = () => {
   }
 
   return (
-    <div className={styles.root}>
-      <h2 className={styles.title}>{t('inquiry.title')}</h2>
-      <aside className={styles.subtitle}>{t('inquiry.subtitle')}</aside>
-      <div className={styles.container}>
-        <div className={styles.userInfoContainer}>
-          <Input
-            label={t('inquiry.name.label')}
-            name="name"
-            value={inputs.name}
-            inputClassName={styles.input}
-            onChange={handleInputChange}
-            error={t(errors.name)}
-            mandatory
-          />
-          <Input
-            label={t('inquiry.email.label')}
-            name="email"
-            value={inputs.email}
-            inputClassName={styles.input}
-            onChange={handleInputChange}
-            error={t(errors.email)}
-            mandatory
-          />
-          <Input
-            label={t('inquiry.phone.label')}
-            name="phone"
-            value={inputs.phone}
-            inputClassName={styles.input}
-            error={t(errors.phone)}
-            onChange={handleInputChange}
-          />
+    <Element name="inquiry">
+      <div className={styles.root}>
+        <h2 className={styles.title}>{t('inquiry.title')}</h2>
+        <aside className={styles.subtitle}>{t('inquiry.subtitle')}</aside>
+        <div className={styles.container}>
+          <div className={styles.userInfoContainer}>
+            <Input
+              label={t('inquiry.name.label')}
+              name="name"
+              value={inputs.name}
+              inputClassName={styles.input}
+              onChange={handleInputChange}
+              error={t(errors.name)}
+              mandatory
+            />
+            <Input
+              label={t('inquiry.email.label')}
+              name="email"
+              value={inputs.email}
+              inputClassName={styles.input}
+              onChange={handleInputChange}
+              error={t(errors.email)}
+              mandatory
+            />
+            <Input
+              label={t('inquiry.phone.label')}
+              name="phone"
+              value={inputs.phone}
+              inputClassName={styles.input}
+              error={t(errors.phone)}
+              onChange={handleInputChange}
+            />
+          </div>
+          <div className={styles.userInfoContainer}>
+            <Textarea
+              label={t('inquiry.message.label')}
+              name="message"
+              value={inputs.message}
+              rows={12}
+              onChange={handleInputChange}
+              error={t(errors.message)}
+              mandatory
+            />
+          </div>
         </div>
-        <div className={styles.userInfoContainer}>
-          <Textarea
-            label={t('inquiry.message.label')}
-            name="message"
-            value={inputs.message}
-            rows={12}
-            onChange={handleInputChange}
-            error={t(errors.message)}
-            mandatory
-          />
-        </div>
+        <Button
+          label={t('inquiry.submit.label')}
+          labelClassName={styles.submitButtonLabel}
+          className={styles.submitButton}
+          onClick={handleSubmit}
+          isLoading={isLoading}
+          disabled={isLoading}
+        />
       </div>
-      <Button
-        label={t('inquiry.submit.label')}
-        labelClassName={styles.submitButtonLabel}
-        className={styles.submitButton}
-        onClick={handleSubmit}
-        isLoading={isLoading}
-        disabled={isLoading}
-      />
-    </div>
+    </Element>
   )
 }
 

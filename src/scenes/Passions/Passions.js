@@ -1,4 +1,5 @@
 import React from 'react'
+import { Element } from 'react-scroll'
 import { useTranslation } from 'react-i18next'
 import FontIcon from 'components/FontIcon'
 import InView from 'components/InView'
@@ -116,23 +117,25 @@ const items = [
 const Passions = () => {
   const { t } = useTranslation()
   return (
-    <div className={styles.root}>
-      <h2 className={styles.title}>{t('passion.title')}</h2>
-      <aside className={styles.subtitle}>{t('passion.subtitle')}</aside>
-      <div className={styles.container}>
-        {items.map((x, i) => (
-          <InView
-            key={i.toString()}
-            className={styles.itemContainer}
-            variants={getVariants({ delay: 0.7 * i })}
-          >
-            <FontIcon icon={x.icon} className={styles.itemIcon} />
-            <h3 className={styles.itemTitle}>{t(x.title)}</h3>
-            <aside className={styles.itemDesc}>{t(x.desc)}</aside>
-          </InView>
-        ))}
+    <Element name="passion">
+      <div className={styles.root}>
+        <h2 className={styles.title}>{t('passion.title')}</h2>
+        <aside className={styles.subtitle}>{t('passion.subtitle')}</aside>
+        <div className={styles.container}>
+          {items.map((x, i) => (
+            <InView
+              key={i.toString()}
+              className={styles.itemContainer}
+              variants={getVariants({ delay: 0.7 * i })}
+            >
+              <FontIcon icon={x.icon} className={styles.itemIcon} />
+              <h3 className={styles.itemTitle}>{t(x.title)}</h3>
+              <aside className={styles.itemDesc}>{t(x.desc)}</aside>
+            </InView>
+          ))}
+        </div>
       </div>
-    </div>
+    </Element>
   )
 }
 

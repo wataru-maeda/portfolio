@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { PropTypes } from 'prop-types'
 import i18next from 'i18next'
+import { Link } from 'react-scroll'
 import { useTranslation } from 'react-i18next'
 import { stack as Elastic } from 'react-burger-menu'
 import Button from 'components/Button'
@@ -70,11 +71,11 @@ const menuStyles = rem({
 })
 
 const menus = [
-  { name: 'passion.title', to: '' },
-  { name: 'profile.title', to: '' },
-  { name: 'skills.title', to: '' },
-  { name: 'released.title', to: '' },
-  { name: 'inquiry.title', to: '' },
+  { name: 'passion.title', to: 'passion' },
+  { name: 'profile.title', to: 'profile' },
+  { name: 'skills.title', to: 'skills' },
+  { name: 'released.title', to: 'released' },
+  { name: 'inquiry.title', to: 'inquiry' },
 ]
 
 const SideMenu = ({ actions, isOpen }) => {
@@ -107,12 +108,13 @@ const SideMenu = ({ actions, isOpen }) => {
       }}
     >
       {menus.map(x => (
-        <Button
-          key={x.name}
-          label={t(x.name)}
-          className={styles.menuButton}
-          onClick={() => null}
-        />
+        <Link key={x.name} to={x.to} smooth>
+          <Button
+            label={t(x.name)}
+            className={styles.menuButton}
+            onClick={() => actions.toggleSideMenu(false)}
+          />
+        </Link>
       ))}
       <div className={styles.langContainer}>
         <aside className={styles.langText}>{t('menu.language')}</aside>

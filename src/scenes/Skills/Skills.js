@@ -1,7 +1,8 @@
 import React from 'react'
 import { PropTypes } from 'prop-types'
+import { useTranslation } from 'react-i18next'
 import InView from 'components/InView'
-import { styler, colors } from 'styles'
+import { styler, colors, breakpoints } from 'styles'
 import { Radar } from 'components/Chart'
 
 const styles = styler({
@@ -13,17 +14,26 @@ const styles = styler({
     width: '100%',
     padding: '80px 60px',
     background: colors.lightGray,
+    [breakpoints.phone]: {
+      padding: '40px 30px',
+    },
   },
   title: {
     fontSize: 32,
     fontWeight: 'bold',
     color: colors.blackGray,
     marginBottom: 30,
+    [breakpoints.phone]: {
+      fontSize: 24,
+    },
   },
   subtitle: {
     fontSize: 20,
     fontWeight: '300',
     marginBottom: 60,
+    [breakpoints.phone]: {
+      fontSize: 16,
+    },
   },
   skillContainer: {
     display: 'flex',
@@ -45,7 +55,7 @@ const styles = styler({
 
 const data = [
   {
-    title: 'Mobile',
+    title: 'skills.mobile.title',
     labels: [
       'Swift',
       'Objective-C',
@@ -63,8 +73,8 @@ const data = [
     ],
   },
   {
-    title: 'Web',
-    labels: ['React', 'Redux', 'GraphQL', 'firebase', 'HTML', 'CSS', 'PHP'],
+    title: 'skills.web.title',
+    labels: ['React', 'Redux', 'GraphQL', 'Firebase', 'HTML', 'CSS', 'PHP'],
     datasets: [
       {
         data: [95, 90, 80, 90, 80, 80, 70],
@@ -74,11 +84,11 @@ const data = [
     ],
   },
   {
-    title: 'Backend',
+    title: 'skills.backend.title',
     labels: [
       'Node',
       'GraphQL',
-      'mongoose',
+      'Mongoose',
       'MongoDB',
       'PostgreSQL/MySQL',
       'AWS',
@@ -92,7 +102,7 @@ const data = [
     ],
   },
   {
-    title: 'Design',
+    title: 'skills.design.title',
     labels: ['AdobeXD', 'Sketch', 'Zeplin', 'Potoshop', 'Illustrator'],
     datasets: [
       {
@@ -122,14 +132,15 @@ const getVariants = ({ delay }) => ({
 })
 
 const Skills = () => {
+  const { t } = useTranslation()
   return (
     <div className={styles.root}>
-      <h2 className={styles.title}>Skills</h2>
-      <aside className={styles.subtitle}>Able To Work All Stage</aside>
+      <h2 className={styles.title}>{t('skills.title')}</h2>
+      <aside className={styles.subtitle}>{t('skills.subtitle')}</aside>
       <div className={styles.skillContainer}>
         {data.map((x, i) => (
           <InView key={i.toString()} variants={getVariants({ delay: 0.3 * i })}>
-            <h4 className={styles.chartTitle}>{x.title}</h4>
+            <h4 className={styles.chartTitle}>{t(x.title)}</h4>
             <Radar data={x} className={styles.radar} />
           </InView>
         ))}

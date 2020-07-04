@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
 import { Provider } from 'react-redux'
+import emailjs from 'emailjs-com'
+import { loadFontIcons } from 'components/FontIcon'
 import store from './utils/store'
-import { loadFontIcons } from './components/FontIcon'
-
 import Router from './routes'
-import { authenticate } from './modules/app.module'
+
+emailjs.init('user_6OLHBHCxFZkG5gAMQCE11')
 
 class App extends Component {
   componentDidMount() {
-    store.dispatch(authenticate())
     loadFontIcons()
   }
 
@@ -17,7 +17,7 @@ class App extends Component {
       <Provider store={store}>
         <Router />
       </Provider>
-    );
+    )
   }
 }
 

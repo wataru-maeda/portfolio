@@ -1,29 +1,34 @@
 import React, { useEffect } from 'react'
+import i18next from 'i18next'
 import Loadable from 'react-loadable'
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
 import { colors } from 'styles'
-import { path } from 'utils/const'
 
 const Portfolio = Loadable({
-  loader: () => import('./scenes/portfolio'),
+  loader: () => import('./scenes'),
   loading: () => <div />,
 })
 
 const Router = () => {
-  // update css variables
   useEffect(() => {
+    // update css variables
     Object.keys(colors).forEach(key => {
       const cssKey = `--${key}`
       const cssVal = colors[key]
       document.body.style.setProperty(cssKey, cssVal)
     })
+    // get browser language
+    const browserLang =
+      window.navigator.language || window.navigator.userLanguage
+    const isJp = browserLang.includes('ja')
+    i18next.changeLanguage(isJp ? 'jp' : 'en')
   }, [])
 
   return (
     <BrowserRouter>
       <Switch>
-        <Route path={path.portfolio} component={Portfolio} />
-        <Redirect to={path.portfolio} />
+        <Route path="/" component={Portfolio} />
+        <Redirect to="/" />
       </Switch>
     </BrowserRouter>
   )

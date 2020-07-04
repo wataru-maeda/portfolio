@@ -1,7 +1,8 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 import FontIcon from 'components/FontIcon'
 import InView from 'components/InView'
-import { styler, colors } from 'styles'
+import { styler, colors, breakpoints } from 'styles'
 
 const styles = styler({
   root: {
@@ -12,36 +13,63 @@ const styles = styler({
     width: '100%',
     padding: '80px 60px',
     background: colors.lightGray,
+    [breakpoints.phone]: {
+      fontSize: 24,
+      padding: '40px 30px',
+    },
   },
   title: {
     fontSize: 32,
     fontWeight: 'bold',
     color: colors.blackGray,
     marginBottom: 30,
+    [breakpoints.phone]: {
+      fontSize: 24,
+      marginBottom: 20,
+    },
   },
   subtitle: {
     fontSize: 20,
     fontWeight: '300',
     marginBottom: 60,
+    [breakpoints.phone]: {
+      fontSize: 16,
+    },
   },
   container: {
     display: 'flex',
     justifyContent: 'space-around',
+    [breakpoints.phone]: {
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
   },
   itemContainer: {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
     width: '30%',
+    [breakpoints.phone]: {
+      width: '100%',
+      marginBottom: 30,
+    },
   },
   itemIcon: {
     fontSize: 40,
     marginBottom: 15,
+    [breakpoints.phone]: {
+      fontSize: 30,
+    },
   },
   itemTitle: {
     fontSize: 16,
     marginBottom: 20,
     textAlign: 'center',
+    [breakpoints.phone]: {
+      fontSize: 14,
+      marginBottom: 15,
+    },
   },
   itemDesc: {
     fontSize: 14,
@@ -49,27 +77,6 @@ const styles = styler({
     textAlign: 'center',
   },
 })
-
-const items = [
-  {
-    title: 'Keen to UI/UX',
-    icon: 'layer-group',
-    desc:
-      'Details on design, Keen to performance. Important thing is that the users percept the information without stress.',
-  },
-  {
-    title: 'Mobile & Web development',
-    icon: 'mobile-alt',
-    desc:
-      'Created 10 iOS apps, 1 android app, 2 react native apps, 6 react web apps for clients from scratch.',
-  },
-  {
-    title: 'Share knowledge & Learn from others',
-    icon: 'book-reader',
-    desc:
-      'Life is all about Learning. Learned from professionals around us. Love to share knowledge/skills to others.',
-  },
-]
 
 const transition = {
   duration: 1,
@@ -88,11 +95,30 @@ const getVariants = ({ delay }) => ({
   },
 })
 
+const items = [
+  {
+    title: 'passion.first.title',
+    icon: 'layer-group',
+    desc: 'passion.first.description',
+  },
+  {
+    title: 'passion.second.title',
+    icon: 'mobile-alt',
+    desc: 'passion.second.description',
+  },
+  {
+    title: 'passion.third.title',
+    icon: 'book-reader',
+    desc: 'passion.third.description',
+  },
+]
+
 const Passions = () => {
+  const { t } = useTranslation()
   return (
     <div className={styles.root}>
-      <h2 className={styles.title}>Passions</h2>
-      <aside className={styles.subtitle}>Build Great Service in Team</aside>
+      <h2 className={styles.title}>{t('passion.title')}</h2>
+      <aside className={styles.subtitle}>{t('passion.subtitle')}</aside>
       <div className={styles.container}>
         {items.map((x, i) => (
           <InView
@@ -101,8 +127,8 @@ const Passions = () => {
             variants={getVariants({ delay: 0.7 * i })}
           >
             <FontIcon icon={x.icon} className={styles.itemIcon} />
-            <h3 className={styles.itemTitle}>{x.title}</h3>
-            <aside className={styles.itemDesc}>{x.desc}</aside>
+            <h3 className={styles.itemTitle}>{t(x.title)}</h3>
+            <aside className={styles.itemDesc}>{t(x.desc)}</aside>
           </InView>
         ))}
       </div>
@@ -111,7 +137,6 @@ const Passions = () => {
 }
 
 Passions.propTypes = {}
-
 Passions.defaultProps = {}
 
 export default Passions

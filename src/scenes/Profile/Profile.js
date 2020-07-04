@@ -1,7 +1,8 @@
 import React from 'react'
 import { PropTypes } from 'prop-types'
 import Button from 'components/Button'
-import { styler, images } from 'styles'
+import { useTranslation } from 'react-i18next'
+import { styler, images, breakpoints } from 'styles'
 
 const styles = styler({
   root: {
@@ -9,6 +10,9 @@ const styles = styler({
     justifyContent: 'center',
     alignItems: 'center',
     padding: '80px 60px',
+    [breakpoints.phone]: {
+      padding: '40px 30px',
+    },
   },
   profile: {
     width: 400,
@@ -17,22 +21,53 @@ const styles = styler({
     overflow: 'none',
     boxShadow: '0px 3px 6px #00000029',
     borderRadius: 10,
+    [breakpoints.phone]: {
+      display: 'none',
+    },
+  },
+  profileMobile: {
+    width: 100,
+    height: 100,
+    objectFit: 'cover',
+    overflow: 'none',
+    boxShadow: '0px 3px 6px #00000029',
+    borderRadius: 50,
+    marginBottom: 40,
+    display: 'none',
+    [breakpoints.phone]: {
+      display: 'block',
+    },
   },
   container: {
     display: 'flex',
     flexDirection: 'column',
     marginLeft: 80,
     width: 400,
+    [breakpoints.phone]: {
+      marginLeft: 0,
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
   },
   title: {
     fontSize: 32,
     marginBottom: 30,
     textAlign: 'left',
+    [breakpoints.phone]: {
+      fontSize: 24,
+      marginBottom: 20,
+      textAlign: 'center',
+    },
   },
   subtitle: {
     fontSize: 20,
     fontWeight: 300,
     marginBottom: 40,
+    [breakpoints.phone]: {
+      fontSize: 16,
+      width: '100%',
+      textAlign: 'center',
+    },
   },
   desc: {
     fontSize: 16,
@@ -41,6 +76,10 @@ const styles = styler({
   },
   snsContainer: {
     display: 'flex',
+    [breakpoints.phone]: {
+      justifyContent: 'center',
+      paddingLeft: 30,
+    },
   },
   snsIcon: {
     fontSize: 20,
@@ -49,21 +88,15 @@ const styles = styler({
 })
 
 const Profile = () => {
+  const { t } = useTranslation()
   return (
     <div className={styles.root}>
       <img src={images.profile} className={styles.profile} alt="me" />
       <div className={styles.container}>
-        <h3 className={styles.title}>Profile</h3>
-        <aside className={styles.subtitle}>Professional All-rounder</aside>
-        <p className={styles.desc}>
-          Hello, my name is Wataru who is developing various services for
-          customers since 2014. I will be able to help you with all of the
-          processes from design to release. I can build iOS app
-          (Swift/Objective-C), hybrid app (react native), and web app (reactjs).
-          Also, I’m able to develop backend with complete MERN Stack to provide
-          RESTful API. Please do not hesitate to contact me if you are looking
-          for someone who can help your business grow.
-        </p>
+        <h3 className={styles.title}>{t('profile.title')}</h3>
+        <aside className={styles.subtitle}>{t('profile.subtitle')}</aside>
+        <img src={images.profile} className={styles.profileMobile} alt="me" />
+        <p className={styles.desc}>{t('profile.description')}</p>
         <div className={styles.snsContainer}>
           <Button
             icon={['fab', 'linkedin-in']}

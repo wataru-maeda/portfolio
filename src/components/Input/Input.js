@@ -1,14 +1,16 @@
-import React, { useState } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
-import Button from 'components/Button'
 import { styler, colors, rem } from 'styles'
+import './input.css'
 
 const styles = styler({
+  root: {
+    width: '100%',
+  },
   container: {
     position: 'relative',
-    marginBottom: 10,
+    marginBottom: 30,
+    background: 'yellow',
   },
   label: {
     display: 'flex',
@@ -59,16 +61,14 @@ const Input = ({
   disabled,
   mandatory,
 }) => {
-  const [currentType, setCurrentType] = useState('text')
   const isPw = type === 'password'
-  const isPwNow = currentType === 'password'
 
   const titleLabel = !mandatory ? (
     <aside className={styles.label}>{label}</aside>
   ) : (
     <aside className={styles.label}>
       {label}
-      <aside style={rem({ color: colors.blue, marginLeft: 3 })}>*</aside>
+      <aside style={rem({ marginLeft: 3 })}>*</aside>
     </aside>
   )
 
@@ -78,12 +78,12 @@ const Input = ({
       : `form-control ${inputClassName}`
 
   return (
-    <div className={`form-group ${className}`} style={style}>
+    <div className={`form-group ${styles.root} ${className}`} style={style}>
       {label && titleLabel}
       <div className={styles.container}>
         <input
           value={value}
-          type={currentType}
+          type={type}
           id={id}
           name={name}
           onChange={onChange}
@@ -94,20 +94,6 @@ const Input = ({
           disabled={disabled}
         />
         <div className="invalid-feedback">{error}</div>
-        {isPw && (
-          <Button
-            className={`btn ${styles.button}`}
-            onClick={e => {
-              e.preventDefault()
-              setCurrentType(isPwNow ? 'text' : 'password')
-            }}
-          >
-            <FontAwesomeIcon
-              icon={isPwNow ? faEye : faEyeSlash}
-              className={styles.icon}
-            />
-          </Button>
-        )}
       </div>
     </div>
   )
@@ -116,7 +102,7 @@ const Input = ({
 Input.propTypes = {
   id: PropTypes.string,
   type: PropTypes.string,
-  label: PropTypes.oneOfType([null, PropTypes.string]),
+  label: PropTypes.string,
   name: PropTypes.string,
   value: PropTypes.string,
   placeholder: PropTypes.string,

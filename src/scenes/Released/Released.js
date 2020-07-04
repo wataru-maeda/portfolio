@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import Button from 'components/Button'
 import InView from 'components/InView'
-import { styler, colors, images } from 'styles'
+import { styler, colors, images, breakpoints } from 'styles'
 
 const styles = styler({
   root: {
@@ -11,17 +12,26 @@ const styles = styler({
     alignItems: 'center',
     width: '100%',
     padding: '80px 60px',
+    [breakpoints.phone]: {
+      padding: '40px 30px',
+    },
   },
   title: {
     fontSize: 32,
     fontWeight: 'bold',
     color: colors.blackGray,
     marginBottom: 30,
+    [breakpoints.phone]: {
+      fontSize: 24,
+    },
   },
   subtitle: {
     fontSize: 20,
     fontWeight: '300',
     marginBottom: 60,
+    [breakpoints.phone]: {
+      fontSize: 16,
+    },
   },
   menu: {
     display: 'flex',
@@ -37,6 +47,9 @@ const styles = styler({
     margin: '0 5px',
     fontSize: 16,
     fontWeight: 300,
+    [breakpoints.phone]: {
+      padding: '15px 20px',
+    },
   },
   container: {
     display: 'flex',
@@ -54,11 +67,18 @@ const styles = styler({
   sectionTitle: {
     fontSize: 24,
     margin: '45px 45px 15px',
+    [breakpoints.phone]: {
+      fontSize: 20,
+      margin: '30px 30px 10px',
+    },
   },
   app: {
     display: 'flex',
     flexDirection: 'column',
     margin: '0 0 50px',
+    [breakpoints.phone]: {
+      margin: '0 0 40px',
+    },
   },
   appHeaderContainer: {
     flex: 1,
@@ -66,6 +86,9 @@ const styles = styler({
     justifyContent: 'space-between',
     alignItems: 'center',
     margin: '0 45px 45px',
+    [breakpoints.phone]: {
+      margin: '0 30px 30px',
+    },
   },
   appInfoContainer: {
     display: 'flex',
@@ -77,8 +100,15 @@ const styles = styler({
     borderRadius: 10,
     objectFit: 'cover',
     overflow: 'hidden',
+    [breakpoints.phone]: {
+      width: 50,
+      height: 50,
+      marginRight: 10,
+      borderRadius: 5,
+    },
   },
   appDetailsContainer: {
+    flex: 1,
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
@@ -89,6 +119,9 @@ const styles = styler({
   appDesc: {
     fontSize: 16,
     fontWeight: 300,
+    [breakpoints.phone]: {
+      fontSize: 14,
+    },
   },
   appMoreButton: {
     padding: '15px 20px',
@@ -96,15 +129,21 @@ const styles = styler({
     borderRadius: 10,
     fontSize: 16,
     fontWeight: 300,
+    [breakpoints.phone]: {
+      fontSize: 14,
+      padding: '10px 15px',
+    },
   },
   appScreenShotsContainer: {
-    display: 'flex',
     overflowX: 'auto',
     whiteSpace: 'nowrap',
     padding: '0 45px',
+    [breakpoints.phone]: {
+      padding: '0 30px',
+    },
   },
   appScreenShot: {
-    objectFit: 'cover',
+    objectFit: 'contain',
     borderRadius: 10,
     marginRight: 10,
     maxWidth: '32%',
@@ -114,22 +153,22 @@ const styles = styler({
 })
 
 const types = [
-  { label: 'All', value: 'all' },
-  { label: 'iOS', value: 'ios' },
-  { label: 'Android', value: 'android' },
-  { label: 'Web', value: 'web' },
-  { label: 'Hybrid', value: 'hybrid' },
+  { label: 'released.all.name', value: 'all' },
+  { label: 'released.ios.name', value: 'ios' },
+  { label: 'released.android.name', value: 'android' },
+  { label: 'released.web.name', value: 'web' },
+  { label: 'released.hybrid.name', value: 'hybrid' },
 ]
 
 const items = [
   {
-    name: 'iOS',
+    name: 'released.ios.name',
     type: 'ios',
     apps: [
       {
         logo: images.flash_card_logo,
-        name: 'Word book to share',
-        details: 'Share your own cards with your friends',
+        name: 'released.flash_card.name',
+        details: 'released.flash_card.description',
         screenShots: [
           images.flash_card_ss_en_1,
           images.flash_card_ss_en_2,
@@ -140,8 +179,8 @@ const items = [
       },
       {
         logo: images.sticky_memo_logo,
-        name: 'Sticky Memo++',
-        details: 'Colorful stickies',
+        name: 'released.sticky_memo.name',
+        details: 'released.sticky_memo.description',
         screenShots: [
           images.sticky_memo_ss_en_1,
           images.sticky_memo_ss_en_2,
@@ -151,13 +190,13 @@ const items = [
     ],
   },
   {
-    name: 'Android',
+    name: 'released.android.name',
     type: 'android',
     apps: [
       {
         logo: images.greattaractive_logo,
-        name: 'Greattractive',
-        details: 'Matching app for creators',
+        name: 'released.greattaractive.name',
+        details: 'released.greattaractive.description',
         screenShots: [
           images.greattaractive_ss_en_1,
           images.greattaractive_ss_en_2,
@@ -169,13 +208,13 @@ const items = [
     ],
   },
   {
-    name: 'Web',
+    name: 'released.web.name',
     type: 'web',
     apps: [
       {
         logo: images.ios_class_for_beginners_logo,
-        name: 'iOS Class for Beginners',
-        details: 'Tutors for iOS development beginners',
+        name: 'released.ios_class_for_beginner.name',
+        details: 'released.ios_class_for_beginner.description',
         screenShots: [
           images.ios_class_for_beginners_ss_en_1,
           images.ios_class_for_beginners_ss_en_2,
@@ -185,13 +224,13 @@ const items = [
     ],
   },
   {
-    name: 'Hybrid Apps',
+    name: 'released.hybrid.name',
     type: 'hybrid',
     apps: [
       {
         logo: images.coming_soon,
-        name: 'Coming soon...',
-        details: 'In progress...',
+        name: 'released.tourism_challenge.name',
+        details: 'released.tourism_challenge.description',
         screenShots: [
           images.tourism_challenge_ss_jp_1,
           images.tourism_challenge_ss_jp_2,
@@ -201,26 +240,6 @@ const items = [
     ],
   },
 ]
-
-const App = ({ logo, name, details, screenShots }) => (
-  <div className={styles.app}>
-    <div className={styles.appHeaderContainer}>
-      <div className={styles.appInfoContainer}>
-        <img src={logo} className={styles.appLogo} alt={name} />
-        <div className={styles.appDetailsContainer}>
-          <aside className={styles.appTitle}>{name}</aside>
-          <p className={styles.appDesc}>{details}</p>
-        </div>
-      </div>
-      <Button label="More" className={styles.appMoreButton} />
-    </div>
-    <div className={styles.appScreenShotsContainer}>
-      {screenShots.map(x => (
-        <img src={x} className={styles.appScreenShot} alt="screenshot" />
-      ))}
-    </div>
-  </div>
-)
 
 const transition = {
   duration: 1,
@@ -239,31 +258,58 @@ const getVariants = ({ x, delay }) => ({
   },
 })
 
-const Section = ({ name, apps, index }) => (
-  <InView
-    className={styles.section}
-    variants={getVariants({
-      x: index % 2 === 0 ? 30 : -30,
-      delay: 0.3,
-    })}
-  >
-    <h4 className={styles.sectionTitle}>{name}</h4>
-    {apps.map(x => (
-      <App {...x} />
-    ))}
-  </InView>
-)
+const App = ({ logo, name, details, screenShots }) => {
+  const { t } = useTranslation()
+  return (
+    <div className={styles.app}>
+      <div className={styles.appHeaderContainer}>
+        <div className={styles.appInfoContainer}>
+          <img src={logo} className={styles.appLogo} alt={t(name)} />
+          <div className={styles.appDetailsContainer}>
+            <aside className={styles.appTitle}>{t(name)}</aside>
+            <p className={styles.appDesc}>{t(details)}</p>
+          </div>
+        </div>
+        <Button label="More" className={styles.appMoreButton} />
+      </div>
+      <div className={styles.appScreenShotsContainer}>
+        {screenShots.map(x => (
+          <img src={x} className={styles.appScreenShot} alt="screenshot" />
+        ))}
+      </div>
+    </div>
+  )
+}
+
+const Section = ({ name, apps, index }) => {
+  const { t } = useTranslation()
+  return (
+    <InView
+      className={styles.section}
+      variants={getVariants({
+        x: index % 2 === 0 ? 30 : -30,
+        delay: 0.3,
+      })}
+    >
+      <h4 className={styles.sectionTitle}>{t(name)}</h4>
+      {apps.map(x => (
+        <App {...x} />
+      ))}
+    </InView>
+  )
+}
 
 const Released = () => {
+  const { t } = useTranslation()
   const [type, setType] = useState('all')
   return (
     <div className={styles.root}>
-      <h2 className={styles.title}>Released Apps</h2>
-      <aside className={styles.subtitle}>Released Personal Projects</aside>
+      <h2 className={styles.title}>{t('released.title')}</h2>
+      <aside className={styles.subtitle}>{t('released.subtitle')}</aside>
       <div className={styles.menu}>
         {types.map(x => (
           <Button
-            label={x.label}
+            label={t(x.label)}
             className={styles.menuButton}
             style={{
               background: type === x.value ? 'black' : colors.lightGray,

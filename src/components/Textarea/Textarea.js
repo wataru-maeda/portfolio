@@ -50,7 +50,7 @@ const Textarea = ({
   ) : (
     <aside className={styles.label}>
       {label}
-      <aside style={rem({ color: colors.blue, marginLeft: 3 })}>*</aside>
+      <aside style={rem({ marginLeft: 3 })}>*</aside>
     </aside>
   )
 

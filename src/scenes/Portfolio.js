@@ -1,7 +1,8 @@
 import React from 'react'
-import { PropTypes } from 'prop-types'
+import SideMenu from 'subviews/SideMenu'
 import { styler } from 'styles'
 
+import Header from './Header'
 import Hero from './Hero'
 import Passions from './Passions'
 import Profile from './Profile'
@@ -14,15 +15,19 @@ const styles = styler({
   root: {
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
+    position: 'relative',
+  },
+  container: {
+    display: 'flex',
+    flexDirection: 'column',
   },
 })
 
-const Portfolio = () => {
-  console.log('[##] window.navigator.language', window.navigator.language)
-  return (
-    <div className={styles.root}>
+const Portfolio = () => (
+  <div id="outer-container" className={styles.root}>
+    <SideMenu />
+    <div id="page-wrap" className={styles.container}>
+      <Header />
       <Hero />
       <Passions />
       <Profile />
@@ -31,15 +36,10 @@ const Portfolio = () => {
       <Inquiry />
       <Footer />
     </div>
-  )
-}
+  </div>
+)
 
-Portfolio.propTypes = {
-  style: PropTypes.shape({}),
-}
-
-Portfolio.defaultProps = {
-  style: {},
-}
+Portfolio.propTypes = {}
+Portfolio.defaultProps = {}
 
 export default Portfolio

@@ -22,12 +22,15 @@ const styles = styler({
 const Button = ({
   label,
   icon,
+  image,
   className,
   spinnerClassName,
   iconClassName,
+  imageClassName,
   style,
   spinnerStyle,
   iconStyle,
+  imageStyle,
   onClick,
   children,
   disabled,
@@ -39,8 +42,8 @@ const Button = ({
     style={style}
     onClick={onClick}
     disabled={disabled || isLoading}
-    whileHover={{ scale: 1.1 }}
-    whileTap={{ scale: 0.9 }}
+    whileHover={{ scale: 1.05 }}
+    whileTap={{ scale: 0.95 }}
   >
     {isLoading ? (
       <Spinner className={spinnerClassName} iconStyle={spinnerStyle} />
@@ -48,6 +51,14 @@ const Button = ({
       <>
         {icon && (
           <FontIcon icon={icon} className={iconClassName} style={iconStyle} />
+        )}
+        {image && (
+          <img
+            src={image}
+            className={imageClassName}
+            style={imageStyle}
+            alt=""
+          />
         )}
         {label}
         {children}
@@ -59,12 +70,15 @@ const Button = ({
 Button.propTypes = {
   label: PropTypes.string,
   icon: PropTypes.string,
+  image: PropTypes.string,
   className: PropTypes.string,
   spinnerClassName: PropTypes.string,
   iconClassName: PropTypes.string,
+  imageClassName: PropTypes.string,
   style: PropTypes.shape({}),
   spinnerStyle: PropTypes.shape({}),
   iconStyle: PropTypes.shape({}),
+  imageStyle: PropTypes.shape({}),
   children: PropTypes.node,
   onClick: PropTypes.func,
   disabled: PropTypes.bool,
@@ -74,12 +88,15 @@ Button.propTypes = {
 Button.defaultProps = {
   label: '',
   icon: null,
+  image: null,
   className: '',
   spinnerClassName: '',
   iconClassName: '',
+  imageClassName: '',
   style: {},
   spinnerStyle: {},
   iconStyle: {},
+  imageStyle: {},
   onClick: () => {},
   children: null,
   disabled: false,

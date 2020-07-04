@@ -1,7 +1,8 @@
 import React from 'react'
 import { PropTypes } from 'prop-types'
+import { useTranslation } from 'react-i18next'
 import Button from 'components/Button'
-import { styler } from 'styles'
+import { styler, breakpoints } from 'styles'
 
 const styles = styler({
   root: {
@@ -21,6 +22,9 @@ const styles = styler({
     fontSize: 16,
     fontWeight: 300,
     color: 'white',
+    [breakpoints.phone]: {
+      fontSize: 14,
+    },
   },
   snsIcon: {
     fontSize: 20,
@@ -30,9 +34,12 @@ const styles = styler({
 })
 
 const Footer = () => {
+  const { t } = useTranslation()
   return (
     <div className={styles.root}>
-      <p className={styles.copyRight}>@Wataru Maeda</p>
+      <p className={styles.copyRight}>{`${t(
+        'footer.copyright',
+      )} ${new Date().getFullYear()}`}</p>
       <div className={styles.container}>
         <Button icon={['fab', 'linkedin-in']} iconClassName={styles.snsIcon} />
         <Button icon={['fab', 'github']} iconClassName={styles.snsIcon} />

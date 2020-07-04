@@ -9,13 +9,18 @@
     "@fortawesome/react-fontawesome": "^0.1.6",
     "bootstrap": "^4.3.1",
     "chart.js": "^2.9.3",
+    "emailjs-com": "^2.4.1",
     "emotion": "^10.0.17",
     "firebase": "^7.2.1",
     "framer-motion": "^1.11.1",
+    "i18next": "^19.5.4",
+    "i18next-browser-languagedetector": "^5.0.0",
     "prop-types": "^15.7.2",
     "react": "^16.10.2",
+    "react-burger-menu": "^2.6.17",
     "react-chartjs-2": "^2.9.0",
     "react-dom": "^16.10.2",
+    "react-i18next": "^11.7.0",
     "react-intersection-observer": "^8.26.2",
     "react-loadable": "^5.5.0",
     "react-redux": "^7.1.1",
@@ -25,7 +30,8 @@
     "reactstrap": "^8.0.1",
     "redux": "^4.0.4",
     "redux-logger": "^3.0.6",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "sweetalert2": "^9.15.2"
   },
   "scripts": {
     "start": "react-scripts start",

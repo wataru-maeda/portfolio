@@ -1,16 +1,32 @@
-import swal from 'sweetalert'
+import swal from 'sweetalert2'
+import PropTypes from 'prop-types'
 import './alert.css'
 
-export const showAlert = ({
-  title,
-  message = '',
-  icon,
-  buttonTitle = 'OK',
-}, callback = () => {}) => {
-  return swal(title, message ,{
-    icon,
-    button: {
-      text: buttonTitle,
-    },
-  }).then(callback)
+const Alert = ({ label, message, icon, buttonText, onClick }) => {
+  return swal
+    .fire(label, message, {
+      icon,
+      button: {
+        text: buttonText,
+      },
+    })
+    .then(onClick)
 }
+
+Alert.propTypes = {
+  label: PropTypes.string,
+  message: PropTypes.string,
+  icon: PropTypes.string,
+  buttonText: PropTypes.string,
+  onClick: PropTypes.func,
+}
+
+Alert.defaultProps = {
+  label: '',
+  message: '',
+  icon: '',
+  buttonText: 'OK',
+  onClick: () => null,
+}
+
+export default Alert

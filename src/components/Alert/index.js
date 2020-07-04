@@ -1,2 +1,3 @@
-import { showAlert } from './Alert'
-export { showAlert }
+import Alert from './Alert'
+
+export default Alert

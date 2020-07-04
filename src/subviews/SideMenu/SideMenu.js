@@ -108,6 +108,7 @@ const SideMenu = ({ actions, isOpen }) => {
     >
       {menus.map(x => (
         <Button
+          key={x.name}
           label={t(x.name)}
           className={styles.menuButton}
           onClick={() => null}

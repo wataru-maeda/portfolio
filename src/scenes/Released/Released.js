@@ -274,7 +274,12 @@ const App = ({ logo, name, details, screenShots }) => {
       </div>
       <div className={styles.appScreenShotsContainer}>
         {screenShots.map(x => (
-          <img src={x} className={styles.appScreenShot} alt="screenshot" />
+          <img
+            key={x}
+            src={x}
+            className={styles.appScreenShot}
+            alt="screenshot"
+          />
         ))}
       </div>
     </div>
@@ -293,7 +298,7 @@ const Section = ({ name, apps, index }) => {
     >
       <h4 className={styles.sectionTitle}>{t(name)}</h4>
       {apps.map(x => (
-        <App {...x} />
+        <App key={x.name} {...x} />
       ))}
     </InView>
   )
@@ -309,6 +314,7 @@ const Released = () => {
       <div className={styles.menu}>
         {types.map(x => (
           <Button
+            key={x.label}
             label={t(x.label)}
             className={styles.menuButton}
             style={{
@@ -322,7 +328,7 @@ const Released = () => {
       <div className={styles.container}>
         {items.map((x, i) =>
           x.type === type || type === 'all' ? (
-            <Section {...x} index={i} />
+            <Section key={x.name} {...x} index={i} />
           ) : null,
         )}
       </div>
@@ -331,7 +337,6 @@ const Released = () => {
 }
 
 Released.propTypes = {}
-
 Released.defaultProps = {}
 
 export default Released

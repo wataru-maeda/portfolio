@@ -69,7 +69,10 @@ const Button = ({
 
 Button.propTypes = {
   label: PropTypes.string,
-  icon: PropTypes.string,
+  icon: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.arrayOf(PropTypes.string),
+  ]),
   image: PropTypes.string,
   className: PropTypes.string,
   spinnerClassName: PropTypes.string,

@@ -28,10 +28,7 @@ const InView = ({ children, variants, className, style }) => {
 }
 
 InView.propTypes = {
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf([PropTypes.shape({})]),
-    PropTypes.shape({}),
-  ]),
+  children: PropTypes.node,
   variants: PropTypes.shape({}),
   className: PropTypes.string,
   style: PropTypes.shape({}),

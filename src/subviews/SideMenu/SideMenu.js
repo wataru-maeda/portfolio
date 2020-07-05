@@ -73,6 +73,7 @@ const menuStyles = rem({
 const menus = [
   { name: 'passion.title', to: 'passion' },
   { name: 'profile.title', to: 'profile' },
+  { name: 'work.title', to: 'work' },
   { name: 'skills.title', to: 'skills' },
   { name: 'released.title', to: 'released' },
   { name: 'inquiry.title', to: 'inquiry' },

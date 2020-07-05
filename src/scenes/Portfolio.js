@@ -6,6 +6,7 @@ import Header from './Header'
 import Hero from './Hero'
 import Passions from './Passions'
 import Profile from './Profile'
+import Works from './Works'
 import Skills from './Skills'
 import Released from './Released'
 import Inquiry from './Inquiry'
@@ -31,6 +32,7 @@ const Portfolio = () => (
       <Hero />
       <Passions />
       <Profile />
+      <Works />
       <Skills />
       <Released />
       <Inquiry />

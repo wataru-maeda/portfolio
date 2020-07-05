@@ -41,10 +41,35 @@ const Footer = () => {
         'footer.copyright',
       )} ${new Date().getFullYear()}`}</p>
       <div className={styles.container}>
-        <Button icon={['fab', 'linkedin-in']} iconClassName={styles.snsIcon} />
-        <Button icon={['fab', 'github']} iconClassName={styles.snsIcon} />
-        <Button icon={['fab', 'facebook-f']} iconClassName={styles.snsIcon} />
-        <Button icon={['fab', 'twitter']} iconClassName={styles.snsIcon} />
+        <Button
+          icon={['fab', 'linkedin-in']}
+          iconClassName={styles.snsIcon}
+          onClick={() =>
+            window.open('https://www.linkedin.com/in/wtr0716/', '_blank')
+          }
+        />
+        <Button
+          icon={['fab', 'github']}
+          iconClassName={styles.snsIcon}
+          onClick={() =>
+            window.open('https://github.com/WataruMaeda', '_blank')
+          }
+        />
+        <Button
+          icon={['fab', 'facebook-f']}
+          iconClassName={styles.snsIcon}
+          onClick={() =>
+            window.open(
+              'https://www.facebook.com/profile.php?id=100011319736559',
+              '_blank',
+            )
+          }
+        />
+        <Button
+          icon={['fab', 'twitter']}
+          iconClassName={styles.snsIcon}
+          onClick={() => window.open('https://twitter.com/wmaeda_ca', '_blank')}
+        />
       </div>
     </div>
   )

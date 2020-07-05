@@ -150,6 +150,7 @@ const styles = styler({
     maxWidth: '32%',
     width: 'auto',
     height: 'auto',
+    boxShadow: '0 0.5px 5px 0 rgba(49, 69, 91, 0.15)',
   },
 })
 

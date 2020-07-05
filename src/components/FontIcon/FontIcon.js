@@ -7,6 +7,7 @@ import {
   faLayerGroup,
   faMobileAlt,
   faBookReader,
+  faBuilding,
 } from '@fortawesome/free-solid-svg-icons'
 import {
   faLinkedinIn,
@@ -26,6 +27,7 @@ export const loadFontIcons = () =>
     faGithub,
     faFacebookF,
     faTwitter,
+    faBuilding,
   )
 
 const FontIcon = ({ icon, className, style }) => (

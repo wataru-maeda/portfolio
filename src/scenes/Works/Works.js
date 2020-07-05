@@ -132,6 +132,7 @@ const styles = styler({
     marginRight: 20,
   },
   companyInfoContainer: {
+    flex: 1,
     display: 'flex',
     flexDirection: 'column',
     marginRight: 30,
@@ -142,6 +143,7 @@ const styles = styler({
   companyName: {
     fontSize: 20,
     marginBottom: 5,
+    textAlign: 'left',
     [breakpoints.phone]: {
       fontSize: 16,
     },
@@ -149,6 +151,7 @@ const styles = styler({
   companyLocation: {
     fontSize: 16,
     fontWeight: 300,
+    textAlign: 'left',
     [breakpoints.phone]: {
       fontSize: 14,
     },
@@ -166,6 +169,7 @@ const styles = styler({
     fontSize: 16,
     fontWeight: 300,
     marginBottom: 5,
+    textAlign: 'right',
     [breakpoints.phone]: {
       fontSize: 14,
     },
@@ -173,6 +177,7 @@ const styles = styler({
   terms: {
     fontSize: 16,
     fontWeight: 300,
+    textAlign: 'right',
     [breakpoints.phone]: {
       fontSize: 14,
     },

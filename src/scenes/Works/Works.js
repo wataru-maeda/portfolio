@@ -81,14 +81,12 @@ const styles = styler({
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    marginLeft: 80,
-    [breakpoints.phone]: {
-      marginLeft: 0,
-    },
+    width: '100%',
   },
   title: {
     fontSize: 32,
     marginBottom: 30,
+    textAlign: 'center',
     [breakpoints.phone]: {
       fontSize: 24,
       marginBottom: 20,
@@ -98,6 +96,7 @@ const styles = styler({
     fontSize: 20,
     fontWeight: 300,
     marginBottom: 40,
+    textAlign: 'center',
     [breakpoints.phone]: {
       fontSize: 16,
       width: '100%',
@@ -106,8 +105,6 @@ const styles = styler({
   historyContainer: {
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
     width: '100%',
   },
   workContainer: {
@@ -115,8 +112,9 @@ const styles = styler({
     flexDirection: 'column',
     padding: '15px 30px',
     borderRadius: 10,
-    boxShadow: '0px 3px 6px #00000029',
-    marginBottom: 20,
+    marginBottom: 30,
+    border: `1px solid ${colors.gray}`,
+    background: 'white',
     width: '100%',
   },
   workTopContainer: {

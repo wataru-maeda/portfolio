@@ -31,9 +31,8 @@ const styles = styler({
       borderRadius: '0 0 0 200px',
     },
     [breakpoints.phone]: {
-      width: 300,
-      opacity: '0.4 !important',
-      borderRadius: '0 0 0 150px',
+      width: 190,
+      borderRadius: '0 0 0 95px',
     },
   },
   container: {

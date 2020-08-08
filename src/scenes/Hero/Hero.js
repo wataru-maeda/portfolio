@@ -16,7 +16,7 @@ const styles = styler({
       height: 500,
     },
     [breakpoints.phone]: {
-      padding: 30,
+      padding: '30px 15px',
       height: 400,
     },
   },
@@ -54,9 +54,9 @@ const styles = styler({
     fontSize: 80,
     fontWeight: 'bold',
     [breakpoints.phone]: {
-      fontSize: 60,
+      marginLeft: 15,
+      fontSize: 50,
       width: '100%',
-      textShadow: '1px 1px white',
     },
   },
   subtitle: {
@@ -64,9 +64,9 @@ const styles = styler({
     fontSize: 24,
     fontWeight: '300',
     [breakpoints.phone]: {
+      marginLeft: 15,
       fontSize: 16,
       width: '100%',
-      textShadow: '1px 1px white',
     },
   },
 })

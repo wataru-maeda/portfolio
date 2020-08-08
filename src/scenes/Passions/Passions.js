@@ -16,7 +16,7 @@ const styles = styler({
     background: colors.lightGray,
     [breakpoints.phone]: {
       fontSize: 24,
-      padding: '40px 30px',
+      padding: '40px 15px',
     },
   },
   title: {
@@ -35,6 +35,7 @@ const styles = styler({
     marginBottom: 60,
     [breakpoints.phone]: {
       fontSize: 16,
+      marginBottom: 50,
     },
   },
   container: {
@@ -76,6 +77,9 @@ const styles = styler({
     fontSize: 14,
     fontWeight: 300,
     textAlign: 'center',
+    [breakpoints.phone]: {
+      maxWidth: '70%',
+    },
   },
 })
 
@@ -126,7 +130,7 @@ const Passions = () => {
             <InView
               key={i.toString()}
               className={styles.itemContainer}
-              variants={getVariants({ delay: 0.7 * i })}
+              variants={getVariants({ delay: 0.3 * i })}
             >
               <FontIcon icon={x.icon} className={styles.itemIcon} />
               <h3 className={styles.itemTitle}>{t(x.title)}</h3>

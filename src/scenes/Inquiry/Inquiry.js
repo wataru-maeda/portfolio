@@ -22,7 +22,7 @@ const styles = styler({
     padding: '80px 60px',
     background: colors.lightGray,
     [breakpoints.phone]: {
-      padding: '40px 30px',
+      padding: '40px 15px',
     },
   },
   title: {
@@ -32,6 +32,7 @@ const styles = styler({
     marginBottom: 30,
     [breakpoints.phone]: {
       fontSize: 24,
+      marginBottom: 20,
     },
   },
   subtitle: {
@@ -55,6 +56,9 @@ const styles = styler({
     display: 'flex',
     flexDirection: 'column',
     padding: '0 20px',
+    [breakpoints.phone]: {
+      padding: 0,
+    },
   },
   input: {
     height: 50,
@@ -67,6 +71,10 @@ const styles = styler({
     fontWeight: 'bold',
     color: 'white',
     marginTop: 20,
+    [breakpoints.phone]: {
+      fontSize: 20,
+      width: '100%',
+    },
   },
 })
 

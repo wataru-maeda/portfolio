@@ -11,7 +11,7 @@ const styles = styler({
     alignItems: 'center',
     padding: '80px 60px',
     [breakpoints.phone]: {
-      padding: '40px 30px',
+      padding: '40px 15px',
     },
   },
   profile: {
@@ -73,6 +73,9 @@ const styles = styler({
     fontSize: 16,
     fontWeight: 300,
     marginBottom: 30,
+    [breakpoints.phone]: {
+      textAlign: 'center',
+    },
   },
   snsContainer: {
     display: 'flex',

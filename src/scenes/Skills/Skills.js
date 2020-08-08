@@ -26,6 +26,7 @@ const styles = styler({
     marginBottom: 30,
     [breakpoints.phone]: {
       fontSize: 24,
+      marginBottom: 20,
     },
   },
   subtitle: {

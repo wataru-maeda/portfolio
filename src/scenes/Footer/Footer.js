@@ -12,6 +12,10 @@ const styles = styler({
     width: '100%',
     background: 'black',
     padding: '20px 30px',
+    [breakpoints.phone]: {
+      flexDirection: 'column',
+      padding: '20px 15px',
+    },
   },
   container: {
     display: 'flex',
@@ -24,12 +28,16 @@ const styles = styler({
     color: 'white',
     [breakpoints.phone]: {
       fontSize: 14,
+      marginBottom: 10,
     },
   },
   snsIcon: {
     fontSize: 20,
     marginRight: 30,
     color: 'white',
+    [breakpoints.phone]: {
+      margin: '0 15px',
+    },
   },
 })
 

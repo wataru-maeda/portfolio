@@ -2,7 +2,7 @@ import React from 'react'
 import { PropTypes } from 'prop-types'
 import Button from 'components/Button'
 import Connector from 'utils/connector'
-import { styler, colors } from 'styles'
+import { styler, colors, breakpoints } from 'styles'
 
 const styles = styler({
   root: {
@@ -14,9 +14,12 @@ const styles = styler({
     border: `1px solid ${colors.gray}`,
     borderRadius: 10,
     fontSize: 16,
-    margin: '20px 30px',
+    margin: '30px',
     background: 'white',
     position: 'absolute',
+    [breakpoints.phone]: {
+      margin: '20px 15px',
+    },
   },
 })
 

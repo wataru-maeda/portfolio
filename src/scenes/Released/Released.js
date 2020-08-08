@@ -14,7 +14,7 @@ const styles = styler({
     width: '100%',
     padding: '80px 60px',
     [breakpoints.phone]: {
-      padding: '40px 30px',
+      padding: '40px 15px',
     },
   },
   title: {
@@ -24,6 +24,7 @@ const styles = styler({
     marginBottom: 30,
     [breakpoints.phone]: {
       fontSize: 24,
+      marginBottom: 20,
     },
   },
   subtitle: {
@@ -49,6 +50,7 @@ const styles = styler({
     fontSize: 16,
     fontWeight: 300,
     [breakpoints.phone]: {
+      fontSize: 14,
       padding: '15px 20px',
     },
   },
@@ -122,6 +124,7 @@ const styles = styler({
     fontWeight: 300,
     [breakpoints.phone]: {
       fontSize: 14,
+      marginRight: 10,
     },
   },
   appMoreButton: {

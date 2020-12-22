@@ -220,6 +220,20 @@ const items = [
     type: 'web',
     apps: [
       {
+        logo: images.blog_logo,
+        name: 'released.blog.name',
+        details: 'released.blog.description',
+        url: 'released.blog.url',
+        screenShots: [
+          images.blog_ss_jp_1,
+          images.blog_ss_jp_2,
+          images.blog_ss_jp_3,
+          images.blog_ss_jp_4,
+          images.blog_ss_jp_5,
+          images.blog_ss_jp_6,
+        ],
+      },
+      {
         logo: images.copypet_logo,
         name: 'released.copypet.name',
         details: 'released.copypet.description',

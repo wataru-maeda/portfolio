@@ -32,6 +32,14 @@ import greattaractive_ss_en_3 from 'assets/images/greattaractive/ss_3_en.jpg'
 import greattaractive_ss_en_4 from 'assets/images/greattaractive/ss_4_en.jpg'
 import greattaractive_ss_en_5 from 'assets/images/greattaractive/ss_5_en.jpg'
 
+import blog_logo from 'assets/images/blog.jpg'
+import blog_ss_jp_1 from 'assets/images/blog/ss_1_jp.jpg'
+import blog_ss_jp_2 from 'assets/images/blog/ss_2_jp.jpg'
+import blog_ss_jp_3 from 'assets/images/blog/ss_3_jp.jpg'
+import blog_ss_jp_4 from 'assets/images/blog/ss_4_jp.jpg'
+import blog_ss_jp_5 from 'assets/images/blog/ss_5_jp.jpg'
+import blog_ss_jp_6 from 'assets/images/blog/ss_6_jp.jpg'
+
 import copypet_logo from 'assets/images/copypet.jpg'
 import copypet_ss_jp_1 from 'assets/images/copypet/ss_1_jp.jpg'
 import copypet_ss_jp_2 from 'assets/images/copypet/ss_2_jp.jpg'
@@ -84,6 +92,14 @@ const images = {
   greattaractive_ss_en_3,
   greattaractive_ss_en_4,
   greattaractive_ss_en_5,
+
+  blog_logo,
+  blog_ss_jp_1,
+  blog_ss_jp_2,
+  blog_ss_jp_3,
+  blog_ss_jp_4,
+  blog_ss_jp_5,
+  blog_ss_jp_6,
 
   copypet_logo,
   copypet_ss_jp_1,

@@ -35,9 +35,12 @@ const FontIcon = ({ icon, className, style }) => (
 )
 
 FontIcon.propTypes = {
-  icon: PropTypes.string,
+  icon: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.arrayOf(PropTypes.string),
+  ]),
   className: PropTypes.string,
-  style: PropTypes.objectOf(PropTypes.object),
+  style: PropTypes.shape({}),
 }
 
 FontIcon.defaultProps = {

@@ -9,6 +9,8 @@ export const firebaseConfig = {
   measurementId: 'G-WZ841FYSBR',
 }
 
+export const emailJsUserId = 'user_6OLHBHCxFZkG5gAMQCE11'
+
 export const emailJsConfig = {
   en: {
     serviceId: 'gmail-en',
@@ -19,3 +21,5 @@ export const emailJsConfig = {
     templateId: 'portfolio_auto_reply_jp_',
   },
 }
+
+export const gaTrackingID = 'UA-131254332-1'
